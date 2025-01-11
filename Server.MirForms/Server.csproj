@@ -12,6 +12,7 @@
   <PropertyGroup>
 	<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 	<AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+	<ApplicationIcon>MIR2_S.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -26,6 +27,10 @@
     <Compile Remove="bin\**" />
     <EmbeddedResource Remove="bin\**" />
     <None Remove="bin\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="MIR2_S.ico" />
   </ItemGroup>
 
   <ItemGroup>

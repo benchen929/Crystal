@@ -58,7 +58,6 @@ namespace Launcher
             this.ProgressCurrent_pb = new System.Windows.Forms.PictureBox();
             this.TotalProg_pb = new System.Windows.Forms.PictureBox();
             this.Launch_pb = new System.Windows.Forms.PictureBox();
-            this.Main_browser = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.Movement_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Close_pb)).BeginInit();
@@ -68,7 +67,6 @@ namespace Launcher
             ((System.ComponentModel.ISupportInitialize)(this.ProgressCurrent_pb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TotalProg_pb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Launch_pb)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Main_browser)).BeginInit();
             this.SuspendLayout();
             // 
             // ActionLabel
@@ -333,21 +331,6 @@ namespace Launcher
             this.Launch_pb.MouseLeave += new System.EventHandler(this.Launch_pb_MouseLeave);
             this.Launch_pb.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Launch_pb_MouseUp);
             // 
-            // Main_browser
-            // 
-            this.Main_browser.AllowExternalDrop = true;
-            this.Main_browser.CausesValidation = false;
-            this.Main_browser.CreationProperties = null;
-            this.Main_browser.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.Main_browser.Location = new System.Drawing.Point(11, 53);
-            this.Main_browser.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Main_browser.MaximumSize = new System.Drawing.Size(782, 403);
-            this.Main_browser.Name = "Main_browser";
-            this.Main_browser.Size = new System.Drawing.Size(782, 403);
-            this.Main_browser.TabIndex = 32;
-            this.Main_browser.Visible = false;
-            this.Main_browser.ZoomFactor = 1D;
-            // 
             // AMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -356,7 +339,6 @@ namespace Launcher
             this.BackgroundImage = global::Client.Resources.Images.pfffft;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(804, 558);
-            this.Controls.Add(this.Main_browser);
             this.Controls.Add(this.SpeedLabel);
             this.Controls.Add(this.Credit_label);
             this.Controls.Add(this.Version_label);
@@ -393,7 +375,6 @@ namespace Launcher
             ((System.ComponentModel.ISupportInitialize)(this.ProgressCurrent_pb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TotalProg_pb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Launch_pb)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Main_browser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,7 +399,6 @@ namespace Launcher
         private System.Windows.Forms.Label Version_label;
         private System.Windows.Forms.PictureBox Config_pb;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Microsoft.Web.WebView2.WinForms.WebView2 Main_browser;
     }
 }
 

@@ -50,7 +50,7 @@ namespace ClientPackets
             writer.Write(Time);
         }
     }
-    public sealed class NewAccount: Packet
+    public sealed class NewAccount : Packet
     {
         public override short Index
         {
@@ -86,7 +86,7 @@ namespace ClientPackets
             writer.Write(EMailAddress);
         }
     }
-    public sealed class ChangePassword: Packet
+    public sealed class ChangePassword : Packet
     {
         public override short Index
         {
@@ -750,8 +750,8 @@ namespace ClientPackets
 
         protected override void ReadPacket(BinaryReader reader)
         {
-            Direction = (MirDirection) reader.ReadByte();
-            Spell = (Spell) reader.ReadByte();
+            Direction = (MirDirection)reader.ReadByte();
+            Spell = (Spell)reader.ReadByte();
         }
         protected override void WritePacket(BinaryWriter writer)
         {
@@ -992,13 +992,13 @@ namespace ClientPackets
 
         protected override void ReadPacket(BinaryReader reader)
         {
-            Spell = (Spell) reader.ReadByte();
+            Spell = (Spell)reader.ReadByte();
             Key = reader.ReadByte();
             OldKey = reader.ReadByte();
         }
         protected override void WritePacket(BinaryWriter writer)
         {
-            writer.Write((byte) Spell);
+            writer.Write((byte)Spell);
             writer.Write(Key);
             writer.Write(OldKey);
         }
@@ -1017,7 +1017,7 @@ namespace ClientPackets
         protected override void ReadPacket(BinaryReader reader)
         {
             ObjectID = reader.ReadUInt32();
-            Spell = (Spell) reader.ReadByte();
+            Spell = (Spell)reader.ReadByte();
             Direction = (MirDirection)reader.ReadByte();
             TargetID = reader.ReadUInt32();
             Location = new Point(reader.ReadInt32(), reader.ReadInt32());
@@ -1026,7 +1026,7 @@ namespace ClientPackets
         protected override void WritePacket(BinaryWriter writer)
         {
             writer.Write(ObjectID);
-            writer.Write((byte) Spell);
+            writer.Write((byte)Spell);
             writer.Write((byte)Direction);
             writer.Write(TargetID);
             writer.Write(Location.X);
@@ -1324,7 +1324,7 @@ namespace ClientPackets
         public override short Index { get { return (short)ClientPacketIds.TradeRequest; } }
 
         protected override void ReadPacket(BinaryReader reader)
-        {  }
+        { }
 
         protected override void WritePacket(BinaryWriter writer)
         { }
@@ -1448,7 +1448,7 @@ namespace ClientPackets
         protected override void WritePacket(BinaryWriter writer)
         {
             writer.Write(Match);
-            writer.Write((Byte)Type);
+            writer.Write((byte)Type);
             writer.Write(Usermode);
             writer.Write(MinShape);
             writer.Write(MaxShape);
@@ -1664,13 +1664,13 @@ namespace ClientPackets
             writer.Write(Name);
         }
     }
-    public sealed class GuildStorageGoldChange: Packet
+    public sealed class GuildStorageGoldChange : Packet
     {
         public override short Index { get { return (short)ClientPacketIds.GuildStorageGoldChange; } }
 
         public byte Type = 0;
-        public uint Amount = 0;      
-        
+        public uint Amount = 0;
+
         protected override void ReadPacket(BinaryReader reader)
         {
             Type = reader.ReadByte();
@@ -1682,7 +1682,7 @@ namespace ClientPackets
             writer.Write(Amount);
         }
     }
-    public sealed class GuildStorageItemChange: Packet
+    public sealed class GuildStorageItemChange : Packet
     {
         public override short Index { get { return (short)ClientPacketIds.GuildStorageItemChange; } }
 
@@ -2189,7 +2189,7 @@ namespace ClientPackets
         public override short Index { get { return (short)ClientPacketIds.IntelligentCreaturePickup; } }
 
         public bool MouseMode = false;
-        public Point Location = new Point(0,0);
+        public Point Location = new Point(0, 0);
 
         protected override void ReadPacket(BinaryReader reader)
         {

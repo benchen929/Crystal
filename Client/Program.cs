@@ -1,18 +1,14 @@
 ﻿using System.Diagnostics;
-using Launcher;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 using Client.Resolution;
+using Launcher;
 
 namespace Client
 {
     internal static class Program
     {
         public static CMain Form;
-        public static AMain PForm;
-
-        public static bool Restart;
-        public static bool Launch;
 
         [STAThread]
         private static void Main(string[] args)
@@ -31,87 +27,33 @@ namespace Client
 
             try
             {
-                if (UpdatePatcher()) return;
-
                 if (RuntimePolicyHelper.LegacyV2RuntimeEnabledSuccessfully == true) { }
 
                 Packet.IsServer = false;
                 Settings.Load();
+                ConfigLauncher.Load();
+                Settings.FullScreen = ConfigLauncher.Instance.FullScreen;
+                Settings.TopMost = ConfigLauncher.Instance.WindowOnTop;
+                Settings.FPSCap = ConfigLauncher.Instance.FPSCap;
+                Settings.Resolution = ConfigLauncher.Instance.Resolution;
+                Settings.UseConfig = true;
+                Settings.IPAddress = ConfigLauncher.Instance.ServerIP;
+                Settings.Port = ConfigLauncher.Instance.ServerPort;
+                Settings.AccountID = ConfigLauncher.Instance.UserName;
+                Settings.Password = ConfigLauncher.Instance.PassWord;
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
                 CheckResolutionSetting();
 
-                Launch = false;
-                if (Settings.P_Patcher)
-                    Application.Run(PForm = new AMain());
-                else
-                    Launch = true;
-
-                if (Launch)
-                    Application.Run(Form = new CMain());
+                Application.Run(Form = new CMain());
 
                 Settings.Save();
-
-                if (Restart)
-                {
-                    Application.Restart();
-                }
             }
             catch (Exception ex)
             {
                 CMain.SaveError(ex.ToString());
-            }
-        }
-
-        private static bool UpdatePatcher()
-        {
-            try
-            {
-                const string fromName = @".\AutoPatcher.gz", toName = @".\AutoPatcher.exe";
-                if (!File.Exists(fromName)) return false;
-
-                Process[] processes = Process.GetProcessesByName("AutoPatcher");
-
-                if (processes.Length > 0)
-                {
-                    string patcherPath = Application.StartupPath + @"\AutoPatcher.exe";
-
-                    for (int i = 0; i < processes.Length; i++)
-                        if (processes[i].MainModule.FileName == patcherPath)
-                            processes[i].Kill();
-
-                    Stopwatch stopwatch = Stopwatch.StartNew();
-                    bool wait = true;
-                    processes = Process.GetProcessesByName("AutoPatcher");
-
-                    while (wait)
-                    {
-                        wait = false;
-                        for (int i = 0; i < processes.Length; i++)
-                            if (processes[i].MainModule.FileName == patcherPath)
-                            {
-                                wait = true;
-                            }
-
-                        if (stopwatch.ElapsedMilliseconds <= 3000) continue;
-                        MessageBox.Show("Failed to close AutoPatcher during update.");
-                        return true;
-                    }
-                }
-
-                if (File.Exists(toName)) File.Delete(toName);
-                File.Move(fromName, toName);
-                Process.Start(toName, "Auto");
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                CMain.SaveError(ex.ToString());
-                
-                throw;
             }
         }
 
@@ -180,6 +122,5 @@ namespace Client
                 Settings.Save();
             }
         }
-
     }
 }

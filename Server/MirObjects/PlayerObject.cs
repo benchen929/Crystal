@@ -1,5 +1,5 @@
 using System.Drawing;
-﻿using C = ClientPackets;
+using C = ClientPackets;
 using Server.MirDatabase;
 using Server.MirEnvir;
 using Server.MirNetwork;
@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using Timer = Server.MirEnvir.Timer;
 using Server.MirObjects.Monsters;
 using System.Threading;
+using ClientPackets;
 
 namespace Server.MirObjects
 {
@@ -9068,7 +9069,7 @@ namespace Server.MirObjects
         #endregion
 
         #region Heroes
-        public void NewHero(C.NewHero p)
+        public void NewHero(NewHero p)
         {
             if (!Envir.CanCreateHero(p, Connection, IsGM))
                 return;

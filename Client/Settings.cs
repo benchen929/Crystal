@@ -63,7 +63,7 @@ namespace Client
 
         //Logs
         public static bool LogErrors = true;
-        public static bool LogChat = true;
+        public static bool LogChat = false;
         public static int RemainingErrorLogs = 100;
 
         //Graphics

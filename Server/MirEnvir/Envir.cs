@@ -1,5 +1,4 @@
 ﻿using ClientPackets;
-using Server.Library.Utils;
 using Server.MirDatabase;
 using Server.MirNetwork;
 using Server.MirObjects;
@@ -174,7 +173,7 @@ namespace Server.MirEnvir
         public List<RankCharacterInfo> RankTop = new List<RankCharacterInfo>();
         public List<RankCharacterInfo>[] RankClass = new List<RankCharacterInfo>[5];
 
-        static HttpServer http;
+        //static HttpServer http;
 
         static Envir()
         {
@@ -529,8 +528,8 @@ namespace Server.MirEnvir
                 StartNetwork();
                 if (Settings.StartHTTPService)
                 {
-                    http = new HttpServer();
-                    http.Start();
+                    //http = new HttpServer();
+                    //http.Start();
                 }
                 try
                 {
@@ -1722,7 +1721,7 @@ namespace Server.MirEnvir
                 }
             }
 
-            http?.Stop();
+            //http?.Stop();
 
             while (_thread != null)
                 Thread.Sleep(1);
@@ -2044,7 +2043,7 @@ namespace Server.MirEnvir
             }
         }
 
-        public void NewAccount(ClientPackets.NewAccount p, MirConnection c)
+        public void NewAccount(NewAccount p, MirConnection c)
         {
             if (!Settings.AllowNewAccount)
             {
@@ -2128,7 +2127,7 @@ namespace Server.MirEnvir
             }
         }
 
-        public int HTTPNewAccount(ClientPackets.NewAccount p, string ip)
+        public int HTTPNewAccount(NewAccount p, string ip)
         {
             if (!Settings.AllowNewAccount)
             {
@@ -2177,7 +2176,7 @@ namespace Server.MirEnvir
             }
         }
 
-        public void ChangePassword(ClientPackets.ChangePassword p, MirConnection c)
+        public void ChangePassword(ChangePassword p, MirConnection c)
         {
             if (!Settings.AllowChangePassword)
             {
@@ -2234,7 +2233,7 @@ namespace Server.MirEnvir
             account.RequirePasswordChange = false;
             c.Enqueue(new ServerPackets.ChangePassword { Result = 6 });
         }
-        public void Login(ClientPackets.Login p, MirConnection c)
+        public void Login(Login p, MirConnection c)
         {
             if (!Settings.AllowLogin)
             {
@@ -2372,7 +2371,7 @@ namespace Server.MirEnvir
             return 7;
         }
 
-        public void NewCharacter(ClientPackets.NewCharacter p, MirConnection c, bool IsGm)
+        public void NewCharacter(NewCharacter p, MirConnection c, bool IsGm)
         {
             if (!Settings.AllowNewCharacter)
             {
@@ -2466,7 +2465,7 @@ namespace Server.MirEnvir
             }
         }
 
-        public bool CanCreateHero(ClientPackets.NewHero p, MirConnection c, bool IsGm)
+        public bool CanCreateHero(NewHero p, MirConnection c, bool IsGm)
         {
             if (!Settings.AllowNewHero)
             {

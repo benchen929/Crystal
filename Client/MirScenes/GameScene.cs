@@ -10,7 +10,6 @@ using S = ServerPackets;
 using C = ClientPackets;
 using Effect = Client.MirObjects.Effect;
 using Client.MirScenes.Dialogs;
-using Client.Utils;
 using static System.Net.Mime.MediaTypeNames;
 using Client.MirGraphics.Particles;
 
@@ -1986,7 +1985,7 @@ namespace Client.MirScenes
                     ConfirmItemRental((S.ConfirmItemRental)p);
                     break;
                 case (short)ServerPacketIds.OpenBrowser:                  
-                    OpenBrowser((S.OpenBrowser)p);
+                    //OpenBrowser((S.OpenBrowser)p);
                     break;
                 case (short)ServerPacketIds.PlaySound:
                     PlaySound((S.PlaySound)p);
@@ -10169,9 +10168,9 @@ namespace Client.MirScenes
             ItemRentDialog.Reset();
         }
 
-        private void OpenBrowser(S.OpenBrowser p) {
-            BrowserHelper.OpenDefaultBrowser(p.Url);
-        }
+        //private void OpenBrowser(S.OpenBrowser p) {
+        //    BrowserHelper.OpenDefaultBrowser(p.Url);
+        //}
 
         public void PlaySound(S.PlaySound p)
         {

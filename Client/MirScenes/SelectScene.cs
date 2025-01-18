@@ -485,6 +485,14 @@ namespace Client.MirScenes
                         case 1920:
                             CMain.SetResolution(1920, 1080);
                             break;
+
+                        case 1440:
+                            CMain.SetResolution(1440, 900);
+                            break;
+                        case 1600:
+                            CMain.SetResolution(1600, 900);
+                            break;
+
                     }
 
                     ActiveScene = new GameScene();

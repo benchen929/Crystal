@@ -1,0 +1,6 @@
+EN|UpdateLog
+EN|GameDownload
+EN|GameDocumentation
+CN|更新日志
+CN|游戏下载
+CN|游戏攻略

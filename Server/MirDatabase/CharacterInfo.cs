@@ -1,5 +1,5 @@
 using System.Drawing;
-﻿using Server.MirEnvir;
+using Server.MirEnvir;
 using Server.MirNetwork;
 using Server.MirObjects;
 

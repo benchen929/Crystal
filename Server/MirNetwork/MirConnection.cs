@@ -7,6 +7,7 @@ using C = ClientPackets;
 using S = ServerPackets;
 using System.Text.RegularExpressions;
 using Server.Utils;
+using ClientPackets;
 
 namespace Server.MirNetwork
 {
@@ -288,319 +289,319 @@ namespace Server.MirNetwork
             switch (p.Index)
             {
                 case (short)ClientPacketIds.ClientVersion:
-                    ClientVersion((C.ClientVersion) p);
+                    ClientVersion((ClientVersion) p);
                     break;
                 case (short)ClientPacketIds.Disconnect:
                     Disconnect(22);
                     break;
                 case (short)ClientPacketIds.KeepAlive: // Keep Alive
-                    ClientKeepAlive((C.KeepAlive)p);
+                    ClientKeepAlive((KeepAlive)p);
                     break;
                 case (short)ClientPacketIds.NewAccount:
-                    NewAccount((C.NewAccount) p);
+                    NewAccount((NewAccount) p);
                     break;
                 case (short)ClientPacketIds.ChangePassword:
-                    ChangePassword((C.ChangePassword) p);
+                    ChangePassword((ChangePassword) p);
                     break;
                 case (short)ClientPacketIds.Login:
-                    Login((C.Login) p);
+                    Login((Login) p);
                     break;
                 case (short)ClientPacketIds.NewCharacter:
-                    NewCharacter((C.NewCharacter) p);
+                    NewCharacter((NewCharacter) p);
                     break;
                 case (short)ClientPacketIds.DeleteCharacter:
-                    DeleteCharacter((C.DeleteCharacter) p);
+                    DeleteCharacter((DeleteCharacter) p);
                     break;
                 case (short)ClientPacketIds.StartGame:
-                    StartGame((C.StartGame) p);
+                    StartGame((StartGame) p);
                     break;
                 case (short)ClientPacketIds.LogOut:
                     LogOut();
                     break;
                 case (short)ClientPacketIds.Turn:
-                    Turn((C.Turn) p);
+                    Turn((Turn) p);
                     break;
                 case (short)ClientPacketIds.Walk:
-                    Walk((C.Walk) p);
+                    Walk((Walk) p);
                     break;
                 case (short)ClientPacketIds.Run:
-                    Run((C.Run) p);
+                    Run((Run) p);
                     break;
                 case (short)ClientPacketIds.Chat:
-                    Chat((C.Chat) p);
+                    Chat((Chat) p);
                     break;
                 case (short)ClientPacketIds.MoveItem:
-                    MoveItem((C.MoveItem) p);
+                    MoveItem((MoveItem) p);
                     break;
                 case (short)ClientPacketIds.StoreItem:
-                    StoreItem((C.StoreItem) p);
+                    StoreItem((StoreItem) p);
                     break;
                 case (short)ClientPacketIds.DepositRefineItem:
-                    DepositRefineItem((C.DepositRefineItem)p);
+                    DepositRefineItem((DepositRefineItem)p);
                     break;
                 case (short)ClientPacketIds.RetrieveRefineItem:
-                    RetrieveRefineItem((C.RetrieveRefineItem)p);
+                    RetrieveRefineItem((RetrieveRefineItem)p);
                     break;
                 case (short)ClientPacketIds.RefineCancel:
-                    RefineCancel((C.RefineCancel)p);
+                    RefineCancel((RefineCancel)p);
                     break;
                 case (short)ClientPacketIds.RefineItem:
-                    RefineItem((C.RefineItem)p);
+                    RefineItem((RefineItem)p);
                     break;
                 case (short)ClientPacketIds.CheckRefine:
-                    CheckRefine((C.CheckRefine)p);
+                    CheckRefine((CheckRefine)p);
                     break;
                 case (short)ClientPacketIds.ReplaceWedRing:
-                    ReplaceWedRing((C.ReplaceWedRing)p);
+                    ReplaceWedRing((ReplaceWedRing)p);
                     break;
                 case (short)ClientPacketIds.DepositTradeItem:
-                    DepositTradeItem((C.DepositTradeItem)p);
+                    DepositTradeItem((DepositTradeItem)p);
                     break;
                 case (short)ClientPacketIds.RetrieveTradeItem:
-                    RetrieveTradeItem((C.RetrieveTradeItem)p);
+                    RetrieveTradeItem((RetrieveTradeItem)p);
                     break;
                 case (short)ClientPacketIds.TakeBackItem:
-                    TakeBackItem((C.TakeBackItem) p);
+                    TakeBackItem((TakeBackItem) p);
                     break;
                 case (short)ClientPacketIds.MergeItem:
-                    MergeItem((C.MergeItem) p);
+                    MergeItem((MergeItem) p);
                     break;
                 case (short)ClientPacketIds.EquipItem:
-                    EquipItem((C.EquipItem) p);
+                    EquipItem((EquipItem) p);
                     break;
                 case (short)ClientPacketIds.RemoveItem:
-                    RemoveItem((C.RemoveItem) p);
+                    RemoveItem((RemoveItem) p);
                     break;
                 case (short)ClientPacketIds.RemoveSlotItem:
-                    RemoveSlotItem((C.RemoveSlotItem)p);
+                    RemoveSlotItem((RemoveSlotItem)p);
                     break;
                 case (short)ClientPacketIds.SplitItem:
-                    SplitItem((C.SplitItem) p);
+                    SplitItem((SplitItem) p);
                     break;
                 case (short)ClientPacketIds.UseItem:
-                    UseItem((C.UseItem) p);
+                    UseItem((UseItem) p);
                     break;
                 case (short)ClientPacketIds.DropItem:
-                    DropItem((C.DropItem) p);
+                    DropItem((DropItem) p);
                     break;
                 case (short)ClientPacketIds.TakeBackHeroItem:
-                    TakeBackHeroItem((C.TakeBackHeroItem)p);
+                    TakeBackHeroItem((TakeBackHeroItem)p);
                     break;
                 case (short)ClientPacketIds.TransferHeroItem:
-                    TransferHeroItem((C.TransferHeroItem)p);
+                    TransferHeroItem((TransferHeroItem)p);
                     break;
                 case (short)ClientPacketIds.DropGold:
-                    DropGold((C.DropGold) p);
+                    DropGold((DropGold) p);
                     break;
                 case (short)ClientPacketIds.PickUp:
                     PickUp();
                     break;
                 case (short)ClientPacketIds.RequestMapInfo:
-                    RequestMapInfo((C.RequestMapInfo)p);
+                    RequestMapInfo((RequestMapInfo)p);
                     break;
                 case (short)ClientPacketIds.TeleportToNPC:
-                    TeleportToNPC((C.TeleportToNPC)p);
+                    TeleportToNPC((TeleportToNPC)p);
                     break;
                 case (short)ClientPacketIds.SearchMap:
-                    SearchMap((C.SearchMap)p);
+                    SearchMap((SearchMap)p);
                     break;
                 case (short)ClientPacketIds.Inspect:
-                    Inspect((C.Inspect)p);
+                    Inspect((Inspect)p);
                     break;
                 case (short)ClientPacketIds.Observe:
-                    Observe((C.Observe)p);
+                    Observe((Observe)p);
                     break;
                 case (short)ClientPacketIds.ChangeAMode:
-                    ChangeAMode((C.ChangeAMode)p);
+                    ChangeAMode((ChangeAMode)p);
                     break;
                 case (short)ClientPacketIds.ChangePMode:
-                    ChangePMode((C.ChangePMode)p);
+                    ChangePMode((ChangePMode)p);
                     break;
                 case (short)ClientPacketIds.ChangeTrade:
-                    ChangeTrade((C.ChangeTrade)p);
+                    ChangeTrade((ChangeTrade)p);
                     break;
                 case (short)ClientPacketIds.Attack:
-                    Attack((C.Attack)p);
+                    Attack((Attack)p);
                     break;
                 case (short)ClientPacketIds.RangeAttack:
-                    RangeAttack((C.RangeAttack)p);
+                    RangeAttack((RangeAttack)p);
                     break;
                 case (short)ClientPacketIds.Harvest:
-                    Harvest((C.Harvest)p);
+                    Harvest((Harvest)p);
                     break;
                 case (short)ClientPacketIds.CallNPC:
-                    CallNPC((C.CallNPC)p);
+                    CallNPC((CallNPC)p);
                     break;
                 case (short)ClientPacketIds.BuyItem:
-                    BuyItem((C.BuyItem)p);
+                    BuyItem((BuyItem)p);
                     break;
                 case (short)ClientPacketIds.CraftItem:
-                    CraftItem((C.CraftItem)p);
+                    CraftItem((CraftItem)p);
                     break;
                 case (short)ClientPacketIds.SellItem:
-                    SellItem((C.SellItem)p);
+                    SellItem((SellItem)p);
                     break;
                 case (short)ClientPacketIds.RepairItem:
-                    RepairItem((C.RepairItem)p);
+                    RepairItem((RepairItem)p);
                     break;
                 case (short)ClientPacketIds.BuyItemBack:
-                    BuyItemBack((C.BuyItemBack)p);
+                    BuyItemBack((BuyItemBack)p);
                     break;
                 case (short)ClientPacketIds.SRepairItem:
-                    SRepairItem((C.SRepairItem)p);
+                    SRepairItem((SRepairItem)p);
                     break;
                 case (short)ClientPacketIds.MagicKey:
-                    MagicKey((C.MagicKey)p);
+                    MagicKey((MagicKey)p);
                     break;
                 case (short)ClientPacketIds.Magic:
-                    Magic((C.Magic)p);
+                    Magic((Magic)p);
                     break;
                 case (short)ClientPacketIds.SwitchGroup:
-                    SwitchGroup((C.SwitchGroup)p);
+                    SwitchGroup((SwitchGroup)p);
                     return;
                 case (short)ClientPacketIds.AddMember:
-                    AddMember((C.AddMember)p);
+                    AddMember((AddMember)p);
                     return;
                 case (short)ClientPacketIds.DellMember:
-                    DelMember((C.DelMember)p);
+                    DelMember((DelMember)p);
                     return;
                 case (short)ClientPacketIds.GroupInvite:
-                    GroupInvite((C.GroupInvite)p);
+                    GroupInvite((GroupInvite)p);
                     return;
                 case (short)ClientPacketIds.NewHero:
-                    NewHero((C.NewHero)p);
+                    NewHero((NewHero)p);
                     break;
                 case (short)ClientPacketIds.SetAutoPotValue:
-                    SetAutoPotValue((C.SetAutoPotValue)p);
+                    SetAutoPotValue((SetAutoPotValue)p);
                     break;
                 case (short)ClientPacketIds.SetAutoPotItem:
-                    SetAutoPotItem((C.SetAutoPotItem)p);
+                    SetAutoPotItem((SetAutoPotItem)p);
                     break;
                 case (short)ClientPacketIds.SetHeroBehaviour:
-                    SetHeroBehaviour((C.SetHeroBehaviour)p);
+                    SetHeroBehaviour((SetHeroBehaviour)p);
                     break;
                 case (short)ClientPacketIds.ChangeHero:
-                    ChangeHero((C.ChangeHero)p);
+                    ChangeHero((ChangeHero)p);
                     break;
                 case (short)ClientPacketIds.TownRevive:
                     TownRevive();
                     return;
                 case (short)ClientPacketIds.SpellToggle:
-                    SpellToggle((C.SpellToggle)p);
+                    SpellToggle((SpellToggle)p);
                     return;
                 case (short)ClientPacketIds.ConsignItem:
-                    ConsignItem((C.ConsignItem)p);
+                    ConsignItem((ConsignItem)p);
                     return;
                 case (short)ClientPacketIds.MarketSearch:
-                    MarketSearch((C.MarketSearch)p);
+                    MarketSearch((MarketSearch)p);
                     return;
                 case (short)ClientPacketIds.MarketRefresh:
                     MarketRefresh();
                     return;
                 case (short)ClientPacketIds.MarketPage:
-                    MarketPage((C.MarketPage) p);
+                    MarketPage((MarketPage) p);
                     return;
                 case (short)ClientPacketIds.MarketBuy:
-                    MarketBuy((C.MarketBuy)p);
+                    MarketBuy((MarketBuy)p);
                     return;
                 case (short)ClientPacketIds.MarketGetBack:
-                    MarketGetBack((C.MarketGetBack)p);
+                    MarketGetBack((MarketGetBack)p);
                     return;
                 case (short)ClientPacketIds.MarketSellNow:
-                    MarketSellNow((C.MarketSellNow)p);
+                    MarketSellNow((MarketSellNow)p);
                     return;
                 case (short)ClientPacketIds.RequestUserName:
-                    RequestUserName((C.RequestUserName)p);
+                    RequestUserName((RequestUserName)p);
                     return;
                 case (short)ClientPacketIds.RequestChatItem:
-                    RequestChatItem((C.RequestChatItem)p);
+                    RequestChatItem((RequestChatItem)p);
                     return;
                 case (short)ClientPacketIds.EditGuildMember:
-                    EditGuildMember((C.EditGuildMember)p);
+                    EditGuildMember((EditGuildMember)p);
                     return;
                 case (short)ClientPacketIds.EditGuildNotice:
-                    EditGuildNotice((C.EditGuildNotice)p);
+                    EditGuildNotice((EditGuildNotice)p);
                     return;
                 case (short)ClientPacketIds.GuildInvite:
-                    GuildInvite((C.GuildInvite)p);
+                    GuildInvite((GuildInvite)p);
                     return;
                 case (short)ClientPacketIds.RequestGuildInfo:
-                    RequestGuildInfo((C.RequestGuildInfo)p);
+                    RequestGuildInfo((RequestGuildInfo)p);
                     return;
                 case (short)ClientPacketIds.GuildNameReturn:
-                    GuildNameReturn((C.GuildNameReturn)p);
+                    GuildNameReturn((GuildNameReturn)p);
                     return;
                 case (short)ClientPacketIds.GuildStorageGoldChange:
-                    GuildStorageGoldChange((C.GuildStorageGoldChange)p);
+                    GuildStorageGoldChange((GuildStorageGoldChange)p);
                     return;
                 case (short)ClientPacketIds.GuildStorageItemChange:
-                    GuildStorageItemChange((C.GuildStorageItemChange)p);
+                    GuildStorageItemChange((GuildStorageItemChange)p);
                     return;
                 case (short)ClientPacketIds.GuildWarReturn:
-                    GuildWarReturn((C.GuildWarReturn)p);
+                    GuildWarReturn((GuildWarReturn)p);
                     return;
                 case (short)ClientPacketIds.MarriageRequest:
-                    MarriageRequest((C.MarriageRequest)p);
+                    MarriageRequest((MarriageRequest)p);
                     return;
                 case (short)ClientPacketIds.MarriageReply:
-                    MarriageReply((C.MarriageReply)p);
+                    MarriageReply((MarriageReply)p);
                     return;
                 case (short)ClientPacketIds.ChangeMarriage:
-                    ChangeMarriage((C.ChangeMarriage)p);
+                    ChangeMarriage((ChangeMarriage)p);
                     return;
                 case (short)ClientPacketIds.DivorceRequest:
-                    DivorceRequest((C.DivorceRequest)p);
+                    DivorceRequest((DivorceRequest)p);
                     return;
                 case (short)ClientPacketIds.DivorceReply:
-                    DivorceReply((C.DivorceReply)p);
+                    DivorceReply((DivorceReply)p);
                     return;
                 case (short)ClientPacketIds.AddMentor:
-                    AddMentor((C.AddMentor)p);
+                    AddMentor((AddMentor)p);
                     return;
                 case (short)ClientPacketIds.MentorReply:
-                    MentorReply((C.MentorReply)p);
+                    MentorReply((MentorReply)p);
                     return;
                 case (short)ClientPacketIds.AllowMentor:
-                    AllowMentor((C.AllowMentor)p);
+                    AllowMentor((AllowMentor)p);
                     return;
                 case (short)ClientPacketIds.CancelMentor:
-                    CancelMentor((C.CancelMentor)p);
+                    CancelMentor((CancelMentor)p);
                     return;
                 case (short)ClientPacketIds.TradeRequest:
-                    TradeRequest((C.TradeRequest)p);
+                    TradeRequest((TradeRequest)p);
                     return;
                 case (short)ClientPacketIds.TradeGold:
-                    TradeGold((C.TradeGold)p);
+                    TradeGold((TradeGold)p);
                     return;
                 case (short)ClientPacketIds.TradeReply:
-                    TradeReply((C.TradeReply)p);
+                    TradeReply((TradeReply)p);
                     return;
                 case (short)ClientPacketIds.TradeConfirm:
-                    TradeConfirm((C.TradeConfirm)p);
+                    TradeConfirm((TradeConfirm)p);
                     return;
                 case (short)ClientPacketIds.TradeCancel:
-                    TradeCancel((C.TradeCancel)p);
+                    TradeCancel((TradeCancel)p);
                     return;
                 case (short)ClientPacketIds.EquipSlotItem:
-                    EquipSlotItem((C.EquipSlotItem)p);
+                    EquipSlotItem((EquipSlotItem)p);
                     break;
                 case (short)ClientPacketIds.FishingCast:
-                    FishingCast((C.FishingCast)p);
+                    FishingCast((FishingCast)p);
                     break;
                 case (short)ClientPacketIds.FishingChangeAutocast:
-                    FishingChangeAutocast((C.FishingChangeAutocast)p);
+                    FishingChangeAutocast((FishingChangeAutocast)p);
                     break;
                 case (short)ClientPacketIds.AcceptQuest:
-                    AcceptQuest((C.AcceptQuest)p);
+                    AcceptQuest((AcceptQuest)p);
                     break;
                 case (short)ClientPacketIds.FinishQuest:
-                    FinishQuest((C.FinishQuest)p);
+                    FinishQuest((FinishQuest)p);
                     break;
                 case (short)ClientPacketIds.AbandonQuest:
-                    AbandonQuest((C.AbandonQuest)p);
+                    AbandonQuest((AbandonQuest)p);
                     break;
                 case (short)ClientPacketIds.ShareQuest:
-                    ShareQuest((C.ShareQuest)p);
+                    ShareQuest((ShareQuest)p);
                     break;
                 case (short)ClientPacketIds.AcceptReincarnation:
                     AcceptReincarnation();
@@ -609,61 +610,61 @@ namespace Server.MirNetwork
                      CancelReincarnation();
                     break;
                 case (short)ClientPacketIds.CombineItem:
-                    CombineItem((C.CombineItem)p);
+                    CombineItem((CombineItem)p);
                     break;
                 case (short)ClientPacketIds.AwakeningNeedMaterials:
-                    AwakeningNeedMaterials((C.AwakeningNeedMaterials)p);
+                    AwakeningNeedMaterials((AwakeningNeedMaterials)p);
                     break;
                 case (short)ClientPacketIds.AwakeningLockedItem:
-                    Enqueue(new S.AwakeningLockedItem { UniqueID = ((C.AwakeningLockedItem)p).UniqueID, Locked = ((C.AwakeningLockedItem)p).Locked });
+                    Enqueue(new S.AwakeningLockedItem { UniqueID = ((AwakeningLockedItem)p).UniqueID, Locked = ((AwakeningLockedItem)p).Locked });
                     break;
                 case (short)ClientPacketIds.Awakening:
-                    Awakening((C.Awakening)p);
+                    Awakening((Awakening)p);
                     break;
                 case (short)ClientPacketIds.DisassembleItem:
-                    DisassembleItem((C.DisassembleItem)p);
+                    DisassembleItem((DisassembleItem)p);
                     break;
                 case (short)ClientPacketIds.DowngradeAwakening:
-                    DowngradeAwakening((C.DowngradeAwakening)p);
+                    DowngradeAwakening((DowngradeAwakening)p);
                     break;
                 case (short)ClientPacketIds.ResetAddedItem:
-                    ResetAddedItem((C.ResetAddedItem)p);
+                    ResetAddedItem((ResetAddedItem)p);
                     break;
                 case (short)ClientPacketIds.SendMail:
-                    SendMail((C.SendMail)p);
+                    SendMail((SendMail)p);
                     break;
                 case (short)ClientPacketIds.ReadMail:
-                    ReadMail((C.ReadMail)p);
+                    ReadMail((ReadMail)p);
                     break;
                 case (short)ClientPacketIds.CollectParcel:
-                    CollectParcel((C.CollectParcel)p);
+                    CollectParcel((CollectParcel)p);
                     break;
                 case (short)ClientPacketIds.DeleteMail:
-                    DeleteMail((C.DeleteMail)p);
+                    DeleteMail((DeleteMail)p);
                     break;
                 case (short)ClientPacketIds.LockMail:
-                    LockMail((C.LockMail)p);
+                    LockMail((LockMail)p);
                     break;
                 case (short)ClientPacketIds.MailLockedItem:
-                    Enqueue(new S.MailLockedItem { UniqueID = ((C.MailLockedItem)p).UniqueID, Locked = ((C.MailLockedItem)p).Locked });
+                    Enqueue(new S.MailLockedItem { UniqueID = ((MailLockedItem)p).UniqueID, Locked = ((MailLockedItem)p).Locked });
                     break;
                 case (short)ClientPacketIds.MailCost:
-                    MailCost((C.MailCost)p);
+                    MailCost((MailCost)p);
                     break;
                 case (short)ClientPacketIds.RequestIntelligentCreatureUpdates:
-                    RequestIntelligentCreatureUpdates((C.RequestIntelligentCreatureUpdates)p);
+                    RequestIntelligentCreatureUpdates((RequestIntelligentCreatureUpdates)p);
                     break;
                 case (short)ClientPacketIds.UpdateIntelligentCreature:
-                    UpdateIntelligentCreature((C.UpdateIntelligentCreature)p);
+                    UpdateIntelligentCreature((UpdateIntelligentCreature)p);
                     break;
                 case (short)ClientPacketIds.IntelligentCreaturePickup:
-                    IntelligentCreaturePickup((C.IntelligentCreaturePickup)p);
+                    IntelligentCreaturePickup((IntelligentCreaturePickup)p);
                     break;
                 case (short)ClientPacketIds.AddFriend:
-                    AddFriend((C.AddFriend)p);
+                    AddFriend((AddFriend)p);
                     break;
                 case (short)ClientPacketIds.RemoveFriend:
-                    RemoveFriend((C.RemoveFriend)p);
+                    RemoveFriend((RemoveFriend)p);
                     break;
                 case (short)ClientPacketIds.RefreshFriends:
                     {
@@ -672,25 +673,25 @@ namespace Server.MirNetwork
                         break;
                     }
                 case (short)ClientPacketIds.AddMemo:
-                    AddMemo((C.AddMemo)p);
+                    AddMemo((AddMemo)p);
                     break;
                 case (short)ClientPacketIds.GuildBuffUpdate:
-                    GuildBuffUpdate((C.GuildBuffUpdate)p);
+                    GuildBuffUpdate((GuildBuffUpdate)p);
                     break;
                 case (short)ClientPacketIds.GameshopBuy:
-                    GameshopBuy((C.GameshopBuy)p);
+                    GameshopBuy((GameshopBuy)p);
                     return;
                 case (short)ClientPacketIds.NPCConfirmInput:
-                    NPCConfirmInput((C.NPCConfirmInput)p);
+                    NPCConfirmInput((NPCConfirmInput)p);
                     break;
                 case (short)ClientPacketIds.ReportIssue:
-                    ReportIssue((C.ReportIssue)p);
+                    ReportIssue((ReportIssue)p);
                     break;
                 case (short)ClientPacketIds.GetRanking:
-                    GetRanking((C.GetRanking)p);
+                    GetRanking((GetRanking)p);
                     break;
                 case (short)ClientPacketIds.Opendoor:
-                    Opendoor((C.Opendoor)p);
+                    Opendoor((Opendoor)p);
                     break;
                 case (short)ClientPacketIds.GetRentedItems:
                     GetRentedItems();
@@ -699,16 +700,16 @@ namespace Server.MirNetwork
                     ItemRentalRequest();
                     break;
                 case (short)ClientPacketIds.ItemRentalFee:
-                    ItemRentalFee((C.ItemRentalFee)p);
+                    ItemRentalFee((ItemRentalFee)p);
                     break;
                 case (short)ClientPacketIds.ItemRentalPeriod:
-                    ItemRentalPeriod((C.ItemRentalPeriod)p);
+                    ItemRentalPeriod((ItemRentalPeriod)p);
                     break;
                 case (short)ClientPacketIds.DepositRentalItem:
-                    DepositRentalItem((C.DepositRentalItem)p);
+                    DepositRentalItem((DepositRentalItem)p);
                     break;
                 case (short)ClientPacketIds.RetrieveRentalItem:
-                    RetrieveRentalItem((C.RetrieveRentalItem)p);
+                    RetrieveRentalItem((RetrieveRentalItem)p);
                     break;
                 case (short)ClientPacketIds.CancelItemRental:
                     CancelItemRental();
@@ -804,7 +805,7 @@ namespace Server.MirNetwork
             }
         }
 
-        private void ClientVersion(C.ClientVersion p)
+        private void ClientVersion(ClientVersion p)
         {
             if (Stage != GameStage.None) return;
 
@@ -841,41 +842,41 @@ namespace Server.MirNetwork
 
             Stage = GameStage.Login;
         }
-        private void ClientKeepAlive(C.KeepAlive p)
+        private void ClientKeepAlive(KeepAlive p)
         {
             Enqueue(new S.KeepAlive
             {
                 Time = p.Time
             });
         }
-        private void NewAccount(C.NewAccount p)
+        private void NewAccount(NewAccount p)
         {
             if (Stage != GameStage.Login) return;
 
             MessageQueue.Enqueue(SessionID + ", " + IPAddress + ", New account being created.");
             Envir.NewAccount(p, this);
         }
-        private void ChangePassword(C.ChangePassword p)
+        private void ChangePassword(ChangePassword p)
         {
             if (Stage != GameStage.Login) return;
 
             MessageQueue.Enqueue(SessionID + ", " + IPAddress + ", Password being changed.");
             Envir.ChangePassword(p, this);
         }
-        private void Login(C.Login p)
+        private void Login(Login p)
         {
             if (Stage != GameStage.Login) return;
 
             MessageQueue.Enqueue(SessionID + ", " + IPAddress + ", User logging in.");
             Envir.Login(p, this);
         }
-        private void NewCharacter(C.NewCharacter p)
+        private void NewCharacter(NewCharacter p)
         {
             if (Stage != GameStage.Select) return;
 
             Envir.NewCharacter(p, this, Account.AdminAccount);
         }
-        private void DeleteCharacter(C.DeleteCharacter p)
+        private void DeleteCharacter(DeleteCharacter p)
         {
             if (Stage != GameStage.Select) return;
             
@@ -907,7 +908,7 @@ namespace Server.MirNetwork
             Envir.RemoveRank(temp);
             Enqueue(new S.DeleteCharacterSuccess { CharacterIndex = temp.Index });
         }
-        private void StartGame(C.StartGame p)
+        private void StartGame(StartGame p)
         {
             if (Stage != GameStage.Select) return;
 
@@ -982,7 +983,7 @@ namespace Server.MirNetwork
             Enqueue(new S.LogOutSuccess { Characters = Account.GetSelectInfo() });
         }
 
-        private void Turn(C.Turn p)
+        private void Turn(Turn p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -991,7 +992,7 @@ namespace Server.MirNetwork
             else
                 Player.Turn(p.Direction);
         }
-        private void Walk(C.Walk p)
+        private void Walk(Walk p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1000,7 +1001,7 @@ namespace Server.MirNetwork
             else
                 Player.Walk(p.Direction);
         }
-        private void Run(C.Run p)
+        private void Run(Run p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1010,7 +1011,7 @@ namespace Server.MirNetwork
                 Player.Run(p.Direction);
         }
         
-        private void Chat(C.Chat p)
+        private void Chat(Chat p)
         {
             if (p.Message.Length > Globals.MaxChatLength)
             {
@@ -1023,111 +1024,111 @@ namespace Server.MirNetwork
             Player.Chat(p.Message, p.LinkedItems);
         }
 
-        private void MoveItem(C.MoveItem p)
+        private void MoveItem(MoveItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.MoveItem(p.Grid, p.From, p.To);
         }
-        private void StoreItem(C.StoreItem p)
+        private void StoreItem(StoreItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.StoreItem(p.From, p.To);
         }
 
-        private void DepositRefineItem(C.DepositRefineItem p)
+        private void DepositRefineItem(DepositRefineItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.DepositRefineItem(p.From, p.To);
         }
 
-        private void RetrieveRefineItem(C.RetrieveRefineItem p)
+        private void RetrieveRefineItem(RetrieveRefineItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.RetrieveRefineItem(p.From, p.To);
         }
 
-        private void RefineCancel(C.RefineCancel p)
+        private void RefineCancel(RefineCancel p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.RefineCancel();
         }
 
-        private void RefineItem(C.RefineItem p)
+        private void RefineItem(RefineItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.RefineItem(p.UniqueID);
         }
 
-        private void CheckRefine(C.CheckRefine p)
+        private void CheckRefine(CheckRefine p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.CheckRefine(p.UniqueID);
         }
 
-        private void ReplaceWedRing(C.ReplaceWedRing p)
+        private void ReplaceWedRing(ReplaceWedRing p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.ReplaceWeddingRing(p.UniqueID);
         }
 
-        private void DepositTradeItem(C.DepositTradeItem p)
+        private void DepositTradeItem(DepositTradeItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.DepositTradeItem(p.From, p.To);
         }
         
-        private void RetrieveTradeItem(C.RetrieveTradeItem p)
+        private void RetrieveTradeItem(RetrieveTradeItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.RetrieveTradeItem(p.From, p.To);
         }
-        private void TakeBackItem(C.TakeBackItem p)
+        private void TakeBackItem(TakeBackItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.TakeBackItem(p.From, p.To);
         }
-        private void MergeItem(C.MergeItem p)
+        private void MergeItem(MergeItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.MergeItem(p.GridFrom, p.GridTo, p.IDFrom, p.IDTo);
         }
-        private void EquipItem(C.EquipItem p)
+        private void EquipItem(EquipItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.EquipItem(p.Grid, p.UniqueID, p.To);
         }
-        private void RemoveItem(C.RemoveItem p)
+        private void RemoveItem(RemoveItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.RemoveItem(p.Grid, p.UniqueID, p.To);
         }
-        private void RemoveSlotItem(C.RemoveSlotItem p)
+        private void RemoveSlotItem(RemoveSlotItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.RemoveSlotItem(p.Grid, p.UniqueID, p.To, p.GridTo, p.FromUniqueID);
         }
-        private void SplitItem(C.SplitItem p)
+        private void SplitItem(SplitItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.SplitItem(p.Grid, p.UniqueID, p.Count);
         }
-        private void UseItem(C.UseItem p)
+        private void UseItem(UseItem p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1141,27 +1142,27 @@ namespace Server.MirNetwork
                     break;
             }            
         }
-        private void DropItem(C.DropItem p)
+        private void DropItem(DropItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.DropItem(p.UniqueID, p.Count, p.HeroInventory);
         }
 
-        private void TakeBackHeroItem(C.TakeBackHeroItem p)
+        private void TakeBackHeroItem(TakeBackHeroItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.TakeBackHeroItem(p.From, p.To);
         }
 
-        private void TransferHeroItem(C.TransferHeroItem p)
+        private void TransferHeroItem(TransferHeroItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.TransferHeroItem(p.From, p.To);
         }
-        private void DropGold(C.DropGold p)
+        private void DropGold(DropGold p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1174,27 +1175,27 @@ namespace Server.MirNetwork
             Player.PickUp();
         }
 
-        private void RequestMapInfo(C.RequestMapInfo p)
+        private void RequestMapInfo(RequestMapInfo p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.RequestMapInfo(p.MapIndex);
         }
 
-        private void TeleportToNPC(C.TeleportToNPC p)
+        private void TeleportToNPC(TeleportToNPC p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.TeleportToNPC(p.ObjectID);
         }
 
-        private void SearchMap(C.SearchMap p)
+        private void SearchMap(SearchMap p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.SearchMap(p.Text);
         }
-        private void Inspect(C.Inspect p)
+        private void Inspect(Inspect p)
         {
             if (Stage != GameStage.Game && Stage != GameStage.Observer) return;
 
@@ -1211,13 +1212,13 @@ namespace Server.MirNetwork
                 Envir.Inspect(this, p.ObjectID);
             } 
         }
-        private void Observe(C.Observe p)
+        private void Observe(Observe p)
         {
             if (Stage != GameStage.Game && Stage != GameStage.Observer) return;
 
             Envir.Observe(this, p.Name);
         }
-        private void ChangeAMode(C.ChangeAMode p)
+        private void ChangeAMode(ChangeAMode p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1225,7 +1226,7 @@ namespace Server.MirNetwork
 
             Enqueue(new S.ChangeAMode {Mode = Player.AMode});
         }
-        private void ChangePMode(C.ChangePMode p)
+        private void ChangePMode(ChangePMode p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1233,13 +1234,13 @@ namespace Server.MirNetwork
 
             Enqueue(new S.ChangePMode { Mode = Player.PMode });
         }
-        private void ChangeTrade(C.ChangeTrade p)
+        private void ChangeTrade(ChangeTrade p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.AllowTrade = p.AllowTrade;
         }
-        private void Attack(C.Attack p)
+        private void Attack(Attack p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1248,7 +1249,7 @@ namespace Server.MirNetwork
             else
                 Player.Attack(p.Direction, p.Spell);
         }
-        private void RangeAttack(C.RangeAttack p)
+        private void RangeAttack(RangeAttack p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1257,7 +1258,7 @@ namespace Server.MirNetwork
             else
                 Player.RangeAttack(p.Direction, p.TargetLocation, p.TargetID);
         }
-        private void Harvest(C.Harvest p)
+        private void Harvest(Harvest p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1267,7 +1268,7 @@ namespace Server.MirNetwork
                 Player.Harvest(p.Direction);
         }
 
-        private void CallNPC(C.CallNPC p)
+        private void CallNPC(CallNPC p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1292,43 +1293,43 @@ namespace Server.MirNetwork
             Player.CallNPC(p.ObjectID, p.Key);
         }
 
-        private void BuyItem(C.BuyItem p)
+        private void BuyItem(BuyItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.BuyItem(p.ItemIndex, p.Count, p.Type);
         }
-        private void CraftItem(C.CraftItem p)
+        private void CraftItem(CraftItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.CraftItem(p.UniqueID, p.Count, p.Slots);
         }
-        private void SellItem(C.SellItem p)
+        private void SellItem(SellItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.SellItem(p.UniqueID, p.Count);
         }
-        private void RepairItem(C.RepairItem p)
+        private void RepairItem(RepairItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.RepairItem(p.UniqueID);
         }
-        private void BuyItemBack(C.BuyItemBack p)
+        private void BuyItemBack(BuyItemBack p)
         {
             if (Stage != GameStage.Game) return;
 
            // Player.BuyItemBack(p.UniqueID, p.Count);
         }
-        private void SRepairItem(C.SRepairItem p)
+        private void SRepairItem(SRepairItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.RepairItem(p.UniqueID, true);
         }
-        private void MagicKey(C.MagicKey p)
+        private void MagicKey(MagicKey p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1352,7 +1353,7 @@ namespace Server.MirNetwork
                 magic.Key = p.Key;
             }
         }
-        private void Magic(C.Magic p)
+        private void Magic(Magic p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1368,60 +1369,60 @@ namespace Server.MirNetwork
                 actor.BeginMagic(p.Spell, p.Direction, p.TargetID, p.Location, p.SpellTargetLock);
         }
 
-        private void SwitchGroup(C.SwitchGroup p)
+        private void SwitchGroup(SwitchGroup p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.SwitchGroup(p.AllowGroup);
         }
-        private void AddMember(C.AddMember p)
+        private void AddMember(AddMember p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.AddMember(p.Name);
         }
-        private void DelMember(C.DelMember p)
+        private void DelMember(DelMember p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.DelMember(p.Name);
         }
-        private void GroupInvite(C.GroupInvite p)
+        private void GroupInvite(GroupInvite p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.GroupInvite(p.AcceptInvite);
         }
 
-        private void NewHero(C.NewHero p)
+        private void NewHero(NewHero p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.NewHero(p);
         }
 
-        private void SetAutoPotValue(C.SetAutoPotValue p)
+        private void SetAutoPotValue(SetAutoPotValue p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.SetAutoPotValue(p.Stat, p.Value);
         }
 
-        private void SetAutoPotItem(C.SetAutoPotItem p)
+        private void SetAutoPotItem(SetAutoPotItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.SetAutoPotItem(p.Grid, p.ItemIndex);
         }
 
-        private void SetHeroBehaviour(C.SetHeroBehaviour p)
+        private void SetHeroBehaviour(SetHeroBehaviour p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.SetHeroBehaviour(p.Behaviour);
         }
 
-        private void ChangeHero(C.ChangeHero p)
+        private void ChangeHero(ChangeHero p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1435,7 +1436,7 @@ namespace Server.MirNetwork
             Player.TownRevive();
         }
 
-        private void SpellToggle(C.SpellToggle p)
+        private void SpellToggle(SpellToggle p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1447,13 +1448,13 @@ namespace Server.MirNetwork
             if (Player.HeroSpawned)
                 Player.Hero.SpellToggle(p.Spell, p.canUse);            
         }
-        private void ConsignItem(C.ConsignItem p)
+        private void ConsignItem(ConsignItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.ConsignItem(p.UniqueID, p.Price, p.Type);
         }
-        private void MarketSearch(C.MarketSearch p)
+        private void MarketSearch(MarketSearch p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1471,101 +1472,101 @@ namespace Server.MirNetwork
             Player.MarketSearch(string.Empty, Player.MatchType);
         }
 
-        private void MarketPage(C.MarketPage p)
+        private void MarketPage(MarketPage p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.MarketPage(p.Page);
         }
-        private void MarketBuy(C.MarketBuy p)
+        private void MarketBuy(MarketBuy p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.MarketBuy(p.AuctionID, p.BidPrice);
         }
-        private void MarketSellNow(C.MarketSellNow p)
+        private void MarketSellNow(MarketSellNow p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.MarketSellNow(p.AuctionID);
         }
 
-        private void MarketGetBack(C.MarketGetBack p)
+        private void MarketGetBack(MarketGetBack p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.MarketGetBack(p.Mode, p.AuctionID);
         }
-        private void RequestUserName(C.RequestUserName p)
+        private void RequestUserName(RequestUserName p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.RequestUserName(p.UserID);
         }
-        private void RequestChatItem(C.RequestChatItem p)
+        private void RequestChatItem(RequestChatItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.RequestChatItem(p.ChatItemID);
         }
-        private void EditGuildMember(C.EditGuildMember p)
+        private void EditGuildMember(EditGuildMember p)
         {
             if (Stage != GameStage.Game) return;
             Player.EditGuildMember(p.Name,p.RankName,p.RankIndex,p.ChangeType);
         }
-        private void EditGuildNotice(C.EditGuildNotice p)
+        private void EditGuildNotice(EditGuildNotice p)
         {
             if (Stage != GameStage.Game) return;
             Player.EditGuildNotice(p.notice);
         }
-        private void GuildInvite(C.GuildInvite p)
+        private void GuildInvite(GuildInvite p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.GuildInvite(p.AcceptInvite);
         }
-        private void RequestGuildInfo(C.RequestGuildInfo p)
+        private void RequestGuildInfo(RequestGuildInfo p)
         {
             if (Stage != GameStage.Game) return;
             Player.RequestGuildInfo(p.Type);
         }
-        private void GuildNameReturn(C.GuildNameReturn p)
+        private void GuildNameReturn(GuildNameReturn p)
         {
             if (Stage != GameStage.Game) return;
             Player.GuildNameReturn(p.Name);
         }
-        private void GuildStorageGoldChange(C.GuildStorageGoldChange p)
+        private void GuildStorageGoldChange(GuildStorageGoldChange p)
         {
             if (Stage != GameStage.Game) return;
             Player.GuildStorageGoldChange(p.Type, p.Amount);
         }
-        private void GuildStorageItemChange(C.GuildStorageItemChange p)
+        private void GuildStorageItemChange(GuildStorageItemChange p)
         {
             if (Stage != GameStage.Game) return;
             Player.GuildStorageItemChange(p.Type, p.From, p.To);
         }
-        private void GuildWarReturn(C.GuildWarReturn p)
+        private void GuildWarReturn(GuildWarReturn p)
         {
             if (Stage != GameStage.Game) return;
             Player.GuildWarReturn(p.Name);
         }
 
 
-        private void MarriageRequest(C.MarriageRequest p)
+        private void MarriageRequest(MarriageRequest p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.MarriageRequest();
         }
 
-        private void MarriageReply(C.MarriageReply p)
+        private void MarriageReply(MarriageReply p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.MarriageReply(p.AcceptInvite);
         }
 
-        private void ChangeMarriage(C.ChangeMarriage p)
+        private void ChangeMarriage(ChangeMarriage p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1587,35 +1588,35 @@ namespace Server.MirNetwork
             }
         }
 
-        private void DivorceRequest(C.DivorceRequest p)
+        private void DivorceRequest(DivorceRequest p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.DivorceRequest();
         }
 
-        private void DivorceReply(C.DivorceReply p)
+        private void DivorceReply(DivorceReply p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.DivorceReply(p.AcceptInvite);
         }
 
-        private void AddMentor(C.AddMentor p)
+        private void AddMentor(AddMentor p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.AddMentor(p.Name);
         }
 
-        private void MentorReply(C.MentorReply p)
+        private void MentorReply(MentorReply p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.MentorReply(p.AcceptInvite);
         }
 
-        private void AllowMentor(C.AllowMentor p)
+        private void AllowMentor(AllowMentor p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1626,86 +1627,86 @@ namespace Server.MirNetwork
                     Player.ReceiveChat(GameLanguage.BlockingMentorRequests, ChatType.Hint);
         }
 
-        private void CancelMentor(C.CancelMentor p)
+        private void CancelMentor(CancelMentor p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.MentorBreak(true);
         }
 
-        private void TradeRequest(C.TradeRequest p)
+        private void TradeRequest(TradeRequest p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.TradeRequest();
         }
-        private void TradeGold(C.TradeGold p)
+        private void TradeGold(TradeGold p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.TradeGold(p.Amount);
         }
-        private void TradeReply(C.TradeReply p)
+        private void TradeReply(TradeReply p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.TradeReply(p.AcceptInvite);
         }
-        private void TradeConfirm(C.TradeConfirm p)
+        private void TradeConfirm(TradeConfirm p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.TradeConfirm(p.Locked);
         }
-        private void TradeCancel(C.TradeCancel p)
+        private void TradeCancel(TradeCancel p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.TradeCancel();
         }
-        private void EquipSlotItem(C.EquipSlotItem p)
+        private void EquipSlotItem(EquipSlotItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.EquipSlotItem(p.Grid, p.UniqueID, p.To, p.GridTo, p.ToUniqueID);
         }
 
-        private void FishingCast(C.FishingCast p)
+        private void FishingCast(FishingCast p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.FishingCast(p.CastOut, true);
         }
 
-        private void FishingChangeAutocast(C.FishingChangeAutocast p)
+        private void FishingChangeAutocast(FishingChangeAutocast p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.FishingChangeAutocast(p.AutoCast);
         }
 
-        private void AcceptQuest(C.AcceptQuest p)
+        private void AcceptQuest(AcceptQuest p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.AcceptQuest(p.QuestIndex); //p.NPCIndex,
         }
 
-        private void FinishQuest(C.FinishQuest p)
+        private void FinishQuest(FinishQuest p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.FinishQuest(p.QuestIndex, p.SelectedItemIndex);
         }
 
-        private void AbandonQuest(C.AbandonQuest p)
+        private void AbandonQuest(AbandonQuest p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.AbandonQuest(p.QuestIndex);
         }
 
-        private void ShareQuest(C.ShareQuest p)
+        private void ShareQuest(ShareQuest p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1733,49 +1734,49 @@ namespace Server.MirNetwork
 
         }
 
-        private void CombineItem(C.CombineItem p)
+        private void CombineItem(CombineItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.CombineItem(p.Grid, p.IDFrom, p.IDTo);
         }
 
-        private void Awakening(C.Awakening p)
+        private void Awakening(Awakening p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.Awakening(p.UniqueID, p.Type);
         }
 
-        private void AwakeningNeedMaterials(C.AwakeningNeedMaterials p)
+        private void AwakeningNeedMaterials(AwakeningNeedMaterials p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.AwakeningNeedMaterials(p.UniqueID, p.Type);
         }
 
-        private void DisassembleItem(C.DisassembleItem p)
+        private void DisassembleItem(DisassembleItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.DisassembleItem(p.UniqueID);
         }
 
-        private void DowngradeAwakening(C.DowngradeAwakening p)
+        private void DowngradeAwakening(DowngradeAwakening p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.DowngradeAwakening(p.UniqueID);
         }
 
-        private void ResetAddedItem(C.ResetAddedItem p)
+        private void ResetAddedItem(ResetAddedItem p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.ResetAddedItem(p.UniqueID);
         }
 
-        public void SendMail(C.SendMail p)
+        public void SendMail(SendMail p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1789,35 +1790,35 @@ namespace Server.MirNetwork
             }
         }
 
-        public void ReadMail(C.ReadMail p)
+        public void ReadMail(ReadMail p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.ReadMail(p.MailID);
         }
 
-        public void CollectParcel(C.CollectParcel p)
+        public void CollectParcel(CollectParcel p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.CollectMail(p.MailID);
         }
 
-        public void DeleteMail(C.DeleteMail p)
+        public void DeleteMail(DeleteMail p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.DeleteMail(p.MailID);
         }
 
-        public void LockMail(C.LockMail p)
+        public void LockMail(LockMail p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.LockMail(p.MailID, p.Lock);
         }
 
-        public void MailCost(C.MailCost p)
+        public void MailCost(MailCost p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1826,14 +1827,14 @@ namespace Server.MirNetwork
             Enqueue(new S.MailCost { Cost = cost });
         }
 
-        private void RequestIntelligentCreatureUpdates(C.RequestIntelligentCreatureUpdates p)
+        private void RequestIntelligentCreatureUpdates(RequestIntelligentCreatureUpdates p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.SendIntelligentCreatureUpdates = p.Update;
         }
 
-        private void UpdateIntelligentCreature(C.UpdateIntelligentCreature p)
+        private void UpdateIntelligentCreature(UpdateIntelligentCreature p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1884,45 +1885,45 @@ namespace Server.MirNetwork
             }
         }
 
-        private void IntelligentCreaturePickup(C.IntelligentCreaturePickup p)
+        private void IntelligentCreaturePickup(IntelligentCreaturePickup p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.IntelligentCreaturePickup(p.MouseMode, p.Location);
         }
 
-        private void AddFriend(C.AddFriend p)
+        private void AddFriend(AddFriend p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.AddFriend(p.Name, p.Blocked);
         }
 
-        private void RemoveFriend(C.RemoveFriend p)
+        private void RemoveFriend(RemoveFriend p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.RemoveFriend(p.CharacterIndex);
         }
 
-        private void AddMemo(C.AddMemo p)
+        private void AddMemo(AddMemo p)
         {
             if (Stage != GameStage.Game) return;
 
             Player.AddMemo(p.CharacterIndex, p.Memo);
         }
-        private void GuildBuffUpdate(C.GuildBuffUpdate p)
+        private void GuildBuffUpdate(GuildBuffUpdate p)
         {
             if (Stage != GameStage.Game) return;
             Player.GuildBuffUpdate(p.Action,p.Id);
         }
-        private void GameshopBuy(C.GameshopBuy p)
+        private void GameshopBuy(GameshopBuy p)
         {
             if (Stage != GameStage.Game) return;
             Player.GameshopBuy(p.GIndex, p.Quantity, p.PType);
         }
 
-        private void NPCConfirmInput(C.NPCConfirmInput p)
+        private void NPCConfirmInput(NPCConfirmInput p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1939,7 +1940,7 @@ namespace Server.MirNetwork
 
         public List<byte[]> Image = new List<byte[]>();
         
-        private void ReportIssue(C.ReportIssue p)
+        private void ReportIssue(ReportIssue p)
         {
             if (Stage != GameStage.Game) return;
 
@@ -1954,13 +1955,13 @@ namespace Server.MirNetwork
             //     Image.Clear();
             // }
         }
-        private void GetRanking(C.GetRanking p)
+        private void GetRanking(GetRanking p)
         {
             if (Stage != GameStage.Game && Stage != GameStage.Observer) return;
             Envir.GetRanking(this, p.RankType, p.RankIndex, p.OnlineOnly);
         }
 
-        private void Opendoor(C.Opendoor p)
+        private void Opendoor(Opendoor p)
         {
             if (Stage != GameStage.Game) return;
             Player.Opendoor(p.DoorIndex);
@@ -1982,7 +1983,7 @@ namespace Server.MirNetwork
             Player.ItemRentalRequest();
         }
 
-        private void ItemRentalFee(C.ItemRentalFee p)
+        private void ItemRentalFee(ItemRentalFee p)
         {
             if (Stage != GameStage.Game)
                 return;
@@ -1990,7 +1991,7 @@ namespace Server.MirNetwork
             Player.SetItemRentalFee(p.Amount);
         }
 
-        private void ItemRentalPeriod(C.ItemRentalPeriod p)
+        private void ItemRentalPeriod(ItemRentalPeriod p)
         {
             if (Stage != GameStage.Game)
                 return;
@@ -1998,7 +1999,7 @@ namespace Server.MirNetwork
             Player.SetItemRentalPeriodLength(p.Days);
         }
 
-        private void DepositRentalItem(C.DepositRentalItem p)
+        private void DepositRentalItem(DepositRentalItem p)
         {
             if (Stage != GameStage.Game)
                 return;
@@ -2006,7 +2007,7 @@ namespace Server.MirNetwork
             Player.DepositRentalItem(p.From, p.To);
         }
 
-        private void RetrieveRentalItem(C.RetrieveRentalItem p)
+        private void RetrieveRentalItem(RetrieveRentalItem p)
         {
             if (Stage != GameStage.Game)
                 return;

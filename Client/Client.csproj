@@ -28,7 +28,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="MIR2.ICO" />
+    <Compile Include="..\Launcher\ConfigLauncher.cs" Link="ConfigLauncher.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +37,7 @@
 
   <ItemGroup>
     <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -65,9 +66,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="MIR2.ICO">
+    <None Update="GameDocumentationList.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="MIR2.ICO">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="GameDoc\" />
   </ItemGroup>
 
 </Project>

@@ -13,6 +13,8 @@ namespace Server
 
         public const int Day = 24 * Hour, Hour = 60 * Minute, Minute = 60 * Second, Second = 1000;
 
+        public static string Language = "English";
+
         public static readonly string EnvirPath = Path.Combine(".", "Envir"),
             ConfigPath = Path.Combine(".", "Configs"),
             MapPath = Path.Combine(".", "Maps"),
@@ -57,8 +59,6 @@ namespace Server
         public static string BlackstoneDropFilename = "00Blackstone";
 
         //Network
-        public static string IPAddress = "127.0.0.1";
-
         public static ushort Port = 7000,
                              TimeOut = 10000,
                              MaxUser = 50,
@@ -94,7 +94,7 @@ namespace Server
         public static int LineMessageTimer = 10;
 
         //Database
-        public static int SaveDelay = 5;
+        public static int SaveDelay = 120;
         public static short CredxGold = 30;
 
         //Game
@@ -279,7 +279,7 @@ namespace Server
         public static ushort HeroMaximumSealCount = 5;
         public static byte MaximumHeroCount = 9;
 
-        public static bool AllowObserve;
+        public static bool AllowObserve = true;
 
         //Guild related settings
         public static bool NewbieGuildBuffEnabled = true;
@@ -332,8 +332,9 @@ namespace Server
         }
 
         public static void Load()
-        {            
+        {
             //General
+            Language = Reader.ReadString("General", "Language", Language);
             VersionPath = Reader.ReadString("General", "VersionPath", VersionPath);
             CheckVersion = Reader.ReadBoolean("General", "CheckVersion", CheckVersion);
             RelogDelay = Reader.ReadUInt16("General", "RelogDelay", RelogDelay);
@@ -345,7 +346,6 @@ namespace Server
             MonsterProcessWhenAlone = Reader.ReadBoolean("General", "MonsterProcessWhenAlone", MonsterProcessWhenAlone);
 
             //Paths
-            IPAddress = Reader.ReadString("Network", "IPAddress", IPAddress);
             Port = Reader.ReadUInt16("Network", "Port", Port);
             TimeOut = Reader.ReadUInt16("Network", "TimeOut", TimeOut);
             MaxUser = Reader.ReadUInt16("Network", "MaxUser", MaxUser);
@@ -567,7 +567,7 @@ namespace Server
             LoadWorldMap();
             LoadHeroSettings();
 
-            GameLanguage.LoadServerLanguage(Path.Combine(ConfigPath, "Language.ini"));
+            GameLanguage.LoadServerLanguage(Language);
         }
 
         public static void LoadNotice()
@@ -608,6 +608,7 @@ namespace Server
         public static void Save()
         {
             //General
+            Reader.Write("General", "Language", Language);
             Reader.Write("General", "VersionPath", VersionPath);
             Reader.Write("General", "CheckVersion", CheckVersion);
             Reader.Write("General", "RelogDelay", RelogDelay);
@@ -618,7 +619,6 @@ namespace Server
             Reader.Write("General", "MonsterProcessWhenAlone", MonsterProcessWhenAlone);
 
             //Paths
-            Reader.Write("Network", "IPAddress", IPAddress);
             Reader.Write("Network", "Port", Port);
             Reader.Write("Network", "TimeOut", TimeOut);
             Reader.Write("Network", "MaxUser", MaxUser);

@@ -698,7 +698,7 @@ namespace Client.MirScenes.Dialogs
                     maxQuantity = Math.Min(ushort.MaxValue, (ushort)(GameScene.Gold / (SelectedItem.Price() / SelectedItem.Count)));
                     if (maxQuantity == 0)
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.LowGold, ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.LowGold, ChatType.System);
                         return;
                     }
                 }
@@ -708,7 +708,7 @@ namespace Client.MirScenes.Dialogs
                 if (SelectedItem.Count == 0)
                 {
                     SelectedItem.Count = tempCount;
-                    GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.NoBagSpace, ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.NoBagSpace, ChatType.System);
                     return;
                 }
 
@@ -738,7 +738,7 @@ namespace Client.MirScenes.Dialogs
             {
                 if (SelectedItem.Info.Price > GameScene.Gold)
                 {
-                    GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.LowGold, ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.LowGold, ChatType.System);
                     return;
                 }
 
@@ -747,7 +747,7 @@ namespace Client.MirScenes.Dialogs
                     if (MapObject.User.Inventory[i] == null) break;
                     if (i == MapObject.User.Inventory.Length - 1)
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.NoBagSpace, ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.NoBagSpace, ChatType.System);
                         return;
                     }
                 }
@@ -997,7 +997,7 @@ namespace Client.MirScenes.Dialogs
                         TargetItem = null;
                         return;
                     }
-                    GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.LowGold, ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.LowGold, ChatType.System);
                     break;
                 case PanelType.SpecialRepair:
                     if ((TargetItem.Info.Bind.HasFlag(BindMode.DontRepair)) || (TargetItem.Info.Bind.HasFlag(BindMode.NoSRepair)))
@@ -1011,7 +1011,7 @@ namespace Client.MirScenes.Dialogs
                         TargetItem = null;
                         return;
                     }
-                    GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.LowGold, ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.LowGold, ChatType.System);
                     break;
                 case PanelType.Consign:
                     if (TargetItem.Info.Bind.HasFlag(BindMode.DontStore) || TargetItem.Info.Bind.HasFlag(BindMode.DontSell))
@@ -2311,9 +2311,9 @@ namespace Client.MirScenes.Dialogs
                 MirMessageBox messageBox;
 
                 if (GameScene.User.HasExpandedStorage)
-                    messageBox = new MirMessageBox(GameLanguage.ExtendYourRentalPeriod, MirMessageBoxButtons.OKCancel);
+                    messageBox = new MirMessageBox(GameLanguage.Instance.ExtendYourRentalPeriod, MirMessageBoxButtons.OKCancel);
                 else
-                    messageBox = new MirMessageBox(GameLanguage.ExtraStorage, MirMessageBoxButtons.OKCancel);
+                    messageBox = new MirMessageBox(GameLanguage.Instance.ExtraStorage, MirMessageBoxButtons.OKCancel);
 
                 messageBox.OKButton.Click += (o1, a) =>
                 {
@@ -2352,7 +2352,7 @@ namespace Client.MirScenes.Dialogs
                 AutoSize = true,
                 DrawFormat = TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter,
                 NotControl = true,
-                Text = GameLanguage.ExpandedStorageLocked,
+                Text = GameLanguage.Instance.ExpandedStorageLocked,
                 ForeColour = Color.Red
             };
 
@@ -2424,12 +2424,12 @@ namespace Client.MirScenes.Dialogs
             {
                 RentButton.Visible = true;
                 LockedPage.Visible = false;
-                RentalLabel.Text = GameLanguage.ExpandedStorageExpiresOn + GameScene.User.ExpandedStorageExpiryTime.ToString();
+                RentalLabel.Text = GameLanguage.Instance.ExpandedStorageExpiresOn + GameScene.User.ExpandedStorageExpiryTime.ToString();
                 RentalLabel.ForeColour = Color.White;
             }
             else
             {
-                RentalLabel.Text = GameLanguage.ExpandedStorageLocked;
+                RentalLabel.Text = GameLanguage.Instance.ExpandedStorageLocked;
                 RentalLabel.ForeColour = Color.Red;
                 RentButton.Visible = true;
                 LockedPage.Visible = true;

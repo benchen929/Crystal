@@ -56,7 +56,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 PressedIndex = 612,
                 Sound = SoundList.ButtonA,
-                Hint = GameLanguage.SwitchMarriage
+                Hint = GameLanguage.Instance.SwitchMarriage
             };
             AllowButton.Click += (o, e) => Network.Enqueue(new C.ChangeMarriage());
 
@@ -69,7 +69,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 PressedIndex = 602,
                 Sound = SoundList.ButtonA,
-                Hint = GameLanguage.RequestMarriage
+                Hint = GameLanguage.Instance.RequestMarriage
             };
             RequestButton.Click += (o, e) =>
             {
@@ -91,7 +91,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 PressedIndex = 618,
                 Sound = SoundList.ButtonA,
-                Hint = GameLanguage.RequestDivorce
+                Hint = GameLanguage.Instance.RequestDivorce
             };
             DivorceButton.Click += (o, e) =>
             {
@@ -113,7 +113,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 PressedIndex = 439,
                 Sound = SoundList.ButtonA,
-                Hint = GameLanguage.MailLover
+                Hint = GameLanguage.Instance.MailLover
             };
             MailButton.Click += (o, e) =>
             {
@@ -135,7 +135,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 PressedIndex = 568,
                 Sound = SoundList.ButtonA,
-                Hint = GameLanguage.WhisperLover
+                Hint = GameLanguage.Instance.WhisperLover
             };
             WhisperButton.Click += (o, e) =>
             {
@@ -232,7 +232,7 @@ namespace Client.MirScenes.Dialogs
 
 
                 LoverOnlineLabel.Text = "Location: ";
-                AllowButton.Hint = GameLanguage.SwitchMarriage;
+                AllowButton.Hint = GameLanguage.Instance.SwitchMarriage;
             }
             else
             {

@@ -66,7 +66,7 @@ namespace Client
 
 
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.Selectable, true);
-            FormBorderStyle = Settings.FullScreen || Settings.Borderless ? FormBorderStyle.None : FormBorderStyle.FixedDialog;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
 
             Graphics = CreateGraphics();
             Graphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -75,11 +75,13 @@ namespace Client
             Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
             Graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
             Graphics.TextContrast = 0;
+
+            TopMost = Settings.TopMost;
         }
 
         private void CMain_Load(object sender, EventArgs e)
         {
-            this.Text = GameLanguage.GameName;
+            this.Text = GameLanguage.Instance.GameName;
             try
             {
                 ClientSize = new Size(Settings.ScreenWidth, Settings.ScreenHeight);
@@ -507,7 +509,7 @@ namespace Client
                     DebugTextLabel = null;
                 }
 
-                Program.Form.Text = $"{GameLanguage.GameName} - {text}";
+                Program.Form.Text = $"{GameLanguage.Instance.GameName} - {text}";
             }
         }
 
@@ -571,7 +573,7 @@ namespace Client
         {
             Settings.FullScreen = !Settings.FullScreen;
 
-            Program.Form.FormBorderStyle = Settings.FullScreen || Settings.Borderless ? FormBorderStyle.None : FormBorderStyle.FixedDialog;
+            Program.Form.FormBorderStyle = FormBorderStyle.FixedDialog;
 
             Program.Form.TopMost = Settings.FullScreen;
 
@@ -700,7 +702,7 @@ namespace Client
         {
             if (CMain.Time < GameScene.LogTime && !Settings.UseTestConfig && !GameScene.Observing)
             {
-                GameScene.Scene.ChatDialog.ReceiveChat(string.Format(GameLanguage.CannotLeaveGame, (GameScene.LogTime - CMain.Time) / 1000), ChatType.System);
+                GameScene.Scene.ChatDialog.ReceiveChat(string.Format(GameLanguage.Instance.CannotLeaveGame, (GameScene.LogTime - CMain.Time) / 1000), ChatType.System);
                 e.Cancel = true;
             }
             else

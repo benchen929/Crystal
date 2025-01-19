@@ -35,6 +35,7 @@ namespace Server
         private void InitializeComponent()
         {
             components = new Container();
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(SMain));
             MainTabs = new TabControl();
             tabPage1 = new TabPage();
             LogTextBox = new TextBox();
@@ -174,7 +175,7 @@ namespace Server
             tabPage2.Margin = new Padding(4, 3, 4, 3);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(4, 3, 4, 3);
-            tabPage2.Size = new Size(558, 431);
+            tabPage2.Size = new Size(558, 435);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Debug Logs";
             tabPage2.UseVisualStyleBackColor = true;
@@ -188,7 +189,7 @@ namespace Server
             DebugLogTextBox.Name = "DebugLogTextBox";
             DebugLogTextBox.ReadOnly = true;
             DebugLogTextBox.ScrollBars = ScrollBars.Vertical;
-            DebugLogTextBox.Size = new Size(550, 425);
+            DebugLogTextBox.Size = new Size(550, 429);
             DebugLogTextBox.TabIndex = 3;
             // 
             // tabPage3
@@ -199,7 +200,7 @@ namespace Server
             tabPage3.Margin = new Padding(4, 3, 4, 3);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new Padding(4, 3, 4, 3);
-            tabPage3.Size = new Size(558, 431);
+            tabPage3.Size = new Size(558, 435);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Chat Logs";
             tabPage3.UseVisualStyleBackColor = true;
@@ -209,7 +210,7 @@ namespace Server
             groupBox1.Controls.Add(GlobalMessageButton);
             groupBox1.Controls.Add(GlobalMessageTextBox);
             groupBox1.Dock = DockStyle.Bottom;
-            groupBox1.Location = new Point(4, 368);
+            groupBox1.Location = new Point(4, 372);
             groupBox1.Margin = new Padding(4, 3, 4, 3);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4, 3, 4, 3);
@@ -256,7 +257,7 @@ namespace Server
             tabPage4.Margin = new Padding(4, 3, 4, 3);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(4, 3, 4, 3);
-            tabPage4.Size = new Size(558, 431);
+            tabPage4.Size = new Size(558, 435);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Players Online";
             // 
@@ -271,7 +272,7 @@ namespace Server
             PlayersOnlineListView.Location = new Point(4, 3);
             PlayersOnlineListView.Margin = new Padding(4, 3, 4, 3);
             PlayersOnlineListView.Name = "PlayersOnlineListView";
-            PlayersOnlineListView.Size = new Size(550, 425);
+            PlayersOnlineListView.Size = new Size(550, 429);
             PlayersOnlineListView.Sorting = SortOrder.Ascending;
             PlayersOnlineListView.TabIndex = 0;
             PlayersOnlineListView.UseCompatibleStateImageBehavior = false;
@@ -310,7 +311,7 @@ namespace Server
             tabPage5.Location = new Point(4, 26);
             tabPage5.Name = "tabPage5";
             tabPage5.Padding = new Padding(3);
-            tabPage5.Size = new Size(558, 431);
+            tabPage5.Size = new Size(558, 435);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "Guilds";
             tabPage5.UseVisualStyleBackColor = true;
@@ -324,7 +325,7 @@ namespace Server
             GuildListView.GridLines = true;
             GuildListView.Location = new Point(3, 3);
             GuildListView.Name = "GuildListView";
-            GuildListView.Size = new Size(552, 425);
+            GuildListView.Size = new Size(552, 429);
             GuildListView.TabIndex = 1;
             GuildListView.UseCompatibleStateImageBehavior = false;
             GuildListView.View = View.Details;
@@ -768,6 +769,7 @@ namespace Server
             Controls.Add(StatusBar);
             Controls.Add(MainMenu);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;
             Name = "SMain";

@@ -282,7 +282,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 PressedIndex = 1928,
                 Sound = SoundList.ButtonA,
-                Hint = GameLanguage.Rotate
+                Hint = GameLanguage.Instance.Rotate
             };
             RotateButton.Click += (o, e) => Flip();
 
@@ -295,7 +295,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 PressedIndex = 1925,
                 Sound = SoundList.ButtonA,
-                Hint = string.Format(GameLanguage.Close, CMain.InputKeys.GetKey(KeybindOptions.Belt))
+                Hint = string.Format(GameLanguage.Instance.Close, CMain.InputKeys.GetKey(KeybindOptions.Belt))
             };
             CloseButton.Click += (o, e) => Hide();
 
@@ -404,7 +404,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 Size = new Size(16, 16),
                 Location = new Point(3, 3),
-                Hint = string.Format(GameLanguage.HeroSkills, CMain.InputKeys.GetKey(KeybindOptions.HeroSkills))
+                Hint = string.Format(GameLanguage.Instance.HeroSkills, CMain.InputKeys.GetKey(KeybindOptions.HeroSkills))
             };
             HeroMagicsButton.Click += (o, e) =>
             {
@@ -426,7 +426,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 Size = new Size(16, 16),
                 Location = new Point(3, 20),
-                Hint = string.Format(GameLanguage.HeroInventory, CMain.InputKeys.GetKey(KeybindOptions.HeroInventory))
+                Hint = string.Format(GameLanguage.Instance.HeroInventory, CMain.InputKeys.GetKey(KeybindOptions.HeroInventory))
             };
             HeroInventoryButton.Click += (o, e) =>
             {
@@ -442,7 +442,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 Size = new Size(16, 16),
                 Location = new Point(3, 37),
-                Hint = string.Format(GameLanguage.HeroCharacter, CMain.InputKeys.GetKey(KeybindOptions.HeroEquipment))
+                Hint = string.Format(GameLanguage.Instance.HeroCharacter, CMain.InputKeys.GetKey(KeybindOptions.HeroEquipment))
             };
             HeroEquipmentButton.Click += (o, e) =>
             {

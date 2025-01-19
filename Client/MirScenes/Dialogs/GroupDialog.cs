@@ -75,7 +75,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 PressedIndex = 116,
                 Sound = SoundList.ButtonA,
-                Hint = GameLanguage.GroupSwitch
+                Hint = GameLanguage.Instance.GroupSwitch
             };
             SwitchButton.Click += (o, e) => Network.Enqueue(new C.SwitchGroup { AllowGroup = !AllowGroup });
 
@@ -88,7 +88,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 PressedIndex = 135,
                 Sound = SoundList.ButtonA,
-                Hint = GameLanguage.GroupAdd
+                Hint = GameLanguage.Instance.GroupAdd
             };
             AddButton.Click += (o, e) => AddMember();
 
@@ -101,7 +101,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 PressedIndex = 138,
                 Sound = SoundList.ButtonA,
-                Hint = GameLanguage.GroupRemove
+                Hint = GameLanguage.Instance.GroupRemove
             };
             DelButton.Click += (o, e) => DelMember();
 
@@ -195,7 +195,7 @@ namespace Client.MirScenes.Dialogs
                 return;
             }
 
-            MirInputBox inputBox = new MirInputBox(GameLanguage.GroupAddEnterName);
+            MirInputBox inputBox = new MirInputBox(GameLanguage.Instance.GroupAddEnterName);
 
             inputBox.OKButton.Click += (o, e) =>
             {
@@ -213,7 +213,7 @@ namespace Client.MirScenes.Dialogs
                 return;
             }
 
-            MirInputBox inputBox = new MirInputBox(GameLanguage.GroupRemoveEnterName);
+            MirInputBox inputBox = new MirInputBox(GameLanguage.Instance.GroupRemoveEnterName);
 
             inputBox.OKButton.Click += (o, e) =>
             {

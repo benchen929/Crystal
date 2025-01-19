@@ -980,7 +980,7 @@ namespace Server.MirObjects
                 item.AddedStats[Stat.Luck]--;
                 Enqueue(new S.RefreshItem { Item = item });
 
-                message = GameLanguage.WeaponCurse;
+                message = GameLanguage.Instance.WeaponCurse;
                 chatType = ChatType.System;
                 
             }
@@ -990,19 +990,19 @@ namespace Server.MirObjects
                 item.AddedStats[Stat.Luck]++;
                 Enqueue(new S.RefreshItem { Item = item });
 
-                message = GameLanguage.WeaponLuck;
+                message = GameLanguage.Instance.WeaponLuck;
                 chatType = ChatType.Hint;
             }
             else
             {
-                message = GameLanguage.WeaponNoEffect;
+                message = GameLanguage.Instance.WeaponNoEffect;
                 chatType = ChatType.Hint;
             }
 
             if (this is HeroObject hero)
             {
-                if (message == GameLanguage.WeaponCurse ||
-                    message == GameLanguage.WeaponLuck)
+                if (message == GameLanguage.Instance.WeaponCurse ||
+                    message == GameLanguage.Instance.WeaponLuck)
                 {
                     hero.Owner.Enqueue(new S.RefreshItem { Item = item });
                 }
@@ -1025,14 +1025,14 @@ namespace Server.MirObjects
                 case MirGender.Male:
                     if (!item.Info.RequiredGender.HasFlag(RequiredGender.Male))
                     {
-                        ReceiveChat(GameLanguage.NotFemale, ChatType.System);
+                        ReceiveChat(GameLanguage.Instance.NotFemale, ChatType.System);
                         return false;
                     }
                     break;
                 case MirGender.Female:
                     if (!item.Info.RequiredGender.HasFlag(RequiredGender.Female))
                     {
-                        ReceiveChat(GameLanguage.NotMale, ChatType.System);
+                        ReceiveChat(GameLanguage.Instance.NotMale, ChatType.System);
                         return false;
                     }
                     break;
@@ -1082,7 +1082,7 @@ namespace Server.MirObjects
                 case RequiredType.Level:
                     if (Level < item.Info.RequiredAmount)
                     {
-                        ReceiveChat(GameLanguage.LowLevel, ChatType.System);
+                        ReceiveChat(GameLanguage.Instance.LowLevel, ChatType.System);
                         return false;
                     }
                     break;
@@ -1103,21 +1103,21 @@ namespace Server.MirObjects
                 case RequiredType.MaxDC:
                     if (Stats[Stat.MaxDC] < item.Info.RequiredAmount)
                     {
-                        ReceiveChat(GameLanguage.LowDC, ChatType.System);
+                        ReceiveChat(GameLanguage.Instance.LowDC, ChatType.System);
                         return false;
                     }
                     break;
                 case RequiredType.MaxMC:
                     if (Stats[Stat.MaxMC] < item.Info.RequiredAmount)
                     {
-                        ReceiveChat(GameLanguage.LowMC, ChatType.System);
+                        ReceiveChat(GameLanguage.Instance.LowMC, ChatType.System);
                         return false;
                     }
                     break;
                 case RequiredType.MaxSC:
                     if (Stats[Stat.MaxSC] < item.Info.RequiredAmount)
                     {
-                        ReceiveChat(GameLanguage.LowSC, ChatType.System);
+                        ReceiveChat(GameLanguage.Instance.LowSC, ChatType.System);
                         return false;
                     }
                     break;
@@ -1173,28 +1173,28 @@ namespace Server.MirObjects
                         case 0:
                             if (CurrentMap.Info.NoEscape)
                             {
-                                ReceiveChat(GameLanguage.CanNotDungeon, ChatType.System);
+                                ReceiveChat(GameLanguage.Instance.CanNotDungeon, ChatType.System);
                                 return false;
                             }
                             break;
                         case 1:
                             if (CurrentMap.Info.NoTownTeleport)
                             {
-                                ReceiveChat(GameLanguage.NoTownTeleport, ChatType.System);
+                                ReceiveChat(GameLanguage.Instance.NoTownTeleport, ChatType.System);
                                 return false;
                             }
                             break;
                         case 2:
                             if (CurrentMap.Info.NoRandom)
                             {
-                                ReceiveChat(GameLanguage.CanNotRandom, ChatType.System);
+                                ReceiveChat(GameLanguage.Instance.CanNotRandom, ChatType.System);
                                 return false;
                             }
                             break;
                         case 6:
                             if (!Dead)
                             {
-                                ReceiveChat(GameLanguage.CannotResurrection, ChatType.Hint);
+                                ReceiveChat(GameLanguage.Instance.CannotResurrection, ChatType.Hint);
                                 return false;
                             }
                             break;
@@ -7288,7 +7288,7 @@ namespace Server.MirObjects
                 if ((PoisonList[i].PType == PoisonType.Frozen) || (PoisonList[i].PType == PoisonType.Slow) || (PoisonList[i].PType == PoisonType.Paralysis) || (PoisonList[i].PType == PoisonType.LRParalysis)) return;//prevents mobs from being perma frozen/slowed
                 if (p.PType == PoisonType.DelayedExplosion) return;
 
-                ReceiveChat(GameLanguage.BeenPoisoned, ChatType.System2);
+                ReceiveChat(GameLanguage.Instance.BeenPoisoned, ChatType.System2);
                 PoisonList[i] = p;
                 return;
             }
@@ -7307,18 +7307,18 @@ namespace Server.MirObjects
                     {
                         Enqueue(new S.ObjectEffect { ObjectID = ObjectID, Effect = SpellEffect.Stunned, Time = (uint)(p.Duration * p.TickSpeed) });
                         Broadcast(new S.ObjectEffect { ObjectID = ObjectID, Effect = SpellEffect.Stunned, Time = (uint)(p.Duration * p.TickSpeed) });
-                        ReceiveChat(GameLanguage.BeenPoisoned, ChatType.System2);
+                        ReceiveChat(GameLanguage.Instance.BeenPoisoned, ChatType.System2);
                     }
                     break;
                 case PoisonType.Blindness:
                     {
                         AddBuff(BuffType.Blindness, Caster, (int)(p.Duration * p.TickSpeed), new Stats { [Stat.Accuracy] = p.Value * -1 });
-                        ReceiveChat(GameLanguage.BeenPoisoned, ChatType.System2);
+                        ReceiveChat(GameLanguage.Instance.BeenPoisoned, ChatType.System2);
                     }
                     break;
                 default:
                     {
-                        ReceiveChat(GameLanguage.BeenPoisoned, ChatType.System2);
+                        ReceiveChat(GameLanguage.Instance.BeenPoisoned, ChatType.System2);
                     }
                     break;
             }

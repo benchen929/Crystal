@@ -1622,9 +1622,9 @@ namespace Server.MirNetwork
 
                 Player.AllowMentor = !Player.AllowMentor;
                 if (Player.AllowMentor)
-                    Player.ReceiveChat(GameLanguage.AllowingMentorRequests, ChatType.Hint);
+                    Player.ReceiveChat(GameLanguage.Instance.AllowingMentorRequests, ChatType.Hint);
                 else
-                    Player.ReceiveChat(GameLanguage.BlockingMentorRequests, ChatType.Hint);
+                    Player.ReceiveChat(GameLanguage.Instance.BlockingMentorRequests, ChatType.Hint);
         }
 
         private void CancelMentor(CancelMentor p)

@@ -30,8 +30,8 @@ namespace Client
                 if (RuntimePolicyHelper.LegacyV2RuntimeEnabledSuccessfully == true) { }
 
                 Packet.IsServer = false;
-                Settings.Load();
                 ConfigLauncher.Load();
+                Settings.Load();
                 Settings.FullScreen = ConfigLauncher.Instance.FullScreen;
                 Settings.TopMost = ConfigLauncher.Instance.WindowOnTop;
                 Settings.FPSCap = ConfigLauncher.Instance.FPSCap;

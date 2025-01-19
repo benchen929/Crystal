@@ -481,7 +481,7 @@ namespace Server.MirObjects
 
             if (NewMail)
             {
-                ReceiveChat(GameLanguage.NewMail, ChatType.System);
+                ReceiveChat(GameLanguage.Instance.NewMail, ChatType.System);
 
                 GetMail();
             }
@@ -1089,7 +1089,7 @@ namespace Server.MirObjects
             Connection.Stage = GameStage.Game;
 
             Enqueue(new S.StartGame { Result = 4, Resolution = Settings.AllowedResolution });
-            ReceiveChat(string.Format(GameLanguage.Welcome, GameLanguage.GameName), ChatType.Hint);
+            ReceiveChat(string.Format(GameLanguage.Instance.Welcome, GameLanguage.Instance.GameName), ChatType.Hint);
 
             if (Settings.TestServer)
             {
@@ -2145,7 +2145,7 @@ namespace Server.MirObjects
                                 Level = level;
                                 LevelUp();
 
-                                ReceiveChat(string.Format("{0} {1} -> {2}.", GameLanguage.LevelUp, old, Level), ChatType.System);
+                                ReceiveChat(string.Format("{0} {1} -> {2}.", GameLanguage.Instance.LevelUp, old, Level), ChatType.System);
                                 MessageQueue.Enqueue(string.Format("Player {0} has been Leveled {1} -> {2} by {3}", Name, old, Level, Name));
                                 return;
                             }
@@ -2195,7 +2195,7 @@ namespace Server.MirObjects
                                 hero.Level = level;
                                 hero.LevelUp();
 
-                                ReceiveChat(string.Format("{0} {1} -> {2}.", GameLanguage.LevelUp, old, hero.Level), ChatType.System);
+                                ReceiveChat(string.Format("{0} {1} -> {2}.", GameLanguage.Instance.LevelUp, old, hero.Level), ChatType.System);
                                 MessageQueue.Enqueue(string.Format("Player {0}'s hero has been Leveled {1} -> {2} by {3}", Name, old, hero.Level, Name));
                                 return;
                             }
@@ -3448,7 +3448,7 @@ namespace Server.MirObjects
 
                         if (MyGuild == null)
                         {
-                            ReceiveChat(GameLanguage.NotInGuild, ChatType.System);
+                            ReceiveChat(GameLanguage.Instance.NotInGuild, ChatType.System);
                         }
 
                         if (MyGuild.Ranks[0] != MyGuildRank)
@@ -3496,11 +3496,11 @@ namespace Server.MirObjects
                                 Account.Gold -= openGold;
                                 Enqueue(new S.LoseGold { Gold = openGold });
                                 Enqueue(new S.ResizeInventory { Size = Info.ResizeInventory() });
-                                ReceiveChat(GameLanguage.InventoryIncreased, ChatType.System);
+                                ReceiveChat(GameLanguage.Instance.InventoryIncreased, ChatType.System);
                             }
                             else
                             {
-                                ReceiveChat(GameLanguage.LowGold, ChatType.System);
+                                ReceiveChat(GameLanguage.Instance.LowGold, ChatType.System);
                             }
                             ChatTime = 0;
                         }
@@ -3521,12 +3521,12 @@ namespace Server.MirObjects
                                 if (Account.ExpandedStorageExpiryDate > Envir.Now)
                                 {
                                     Account.ExpandedStorageExpiryDate = Account.ExpandedStorageExpiryDate + addedTime;
-                                    ReceiveChat(GameLanguage.ExpandedStorageExpiresOn + Account.ExpandedStorageExpiryDate.ToString(), ChatType.System);
+                                    ReceiveChat(GameLanguage.Instance.ExpandedStorageExpiresOn + Account.ExpandedStorageExpiryDate.ToString(), ChatType.System);
                                 }
                                 else
                                 {
                                     Account.ExpandedStorageExpiryDate = Envir.Now + addedTime;
-                                    ReceiveChat(GameLanguage.ExpandedStorageExpiresOn + Account.ExpandedStorageExpiryDate.ToString(), ChatType.System);
+                                    ReceiveChat(GameLanguage.Instance.ExpandedStorageExpiresOn + Account.ExpandedStorageExpiryDate.ToString(), ChatType.System);
                                 }
 
                                 Enqueue(new S.LoseGold { Gold = cost });
@@ -3534,7 +3534,7 @@ namespace Server.MirObjects
                             }
                             else
                             {
-                                ReceiveChat(GameLanguage.LowGold, ChatType.System);
+                                ReceiveChat(GameLanguage.Instance.LowGold, ChatType.System);
                             }
                             ChatTime = 0;
                         }
@@ -7062,7 +7062,7 @@ namespace Server.MirObjects
 
             if (CurrentMap.Info.NoThrowItem)
             {
-                ReceiveChat(GameLanguage.CanNotDrop, ChatType.System);
+                ReceiveChat(GameLanguage.Instance.CanNotDrop, ChatType.System);
                 Enqueue(p);
                 return;
             }
@@ -9323,7 +9323,7 @@ namespace Server.MirObjects
         {
             if ((MyGuild == null) || (MyGuildRank == null))
             {
-                ReceiveChat(GameLanguage.NotInGuild, ChatType.System);
+                ReceiveChat(GameLanguage.Instance.NotInGuild, ChatType.System);
                 return;
             }
             switch (ChangeType)
@@ -9441,7 +9441,7 @@ namespace Server.MirObjects
         {
             if ((MyGuild == null) || (MyGuildRank == null))
             {
-                ReceiveChat(GameLanguage.NotInGuild, ChatType.System);
+                ReceiveChat(GameLanguage.Instance.NotInGuild, ChatType.System);
                 return;
             }
             if (!MyGuildRank.Options.HasFlag(GuildRankOptions.CanChangeNotice))
@@ -9994,7 +9994,7 @@ namespace Server.MirObjects
 
             if (cell.Objects == null || cell.Objects.Count == 0) 
             {
-                ReceiveChat(GameLanguage.FaceToTrade, ChatType.System);
+                ReceiveChat(GameLanguage.Instance.FaceToTrade, ChatType.System);
                 return;
             } 
 
@@ -10008,7 +10008,7 @@ namespace Server.MirObjects
 
             if (player == null)
             {
-                ReceiveChat(GameLanguage.FaceToTrade, ChatType.System);
+                ReceiveChat(GameLanguage.Instance.FaceToTrade, ChatType.System);
                 return;
             }
 
@@ -10016,7 +10016,7 @@ namespace Server.MirObjects
             {
                 if (!Functions.FacingEachOther(Direction, CurrentLocation, player.Direction, player.CurrentLocation))
                 {
-                    ReceiveChat(GameLanguage.FaceToTrade, ChatType.System);
+                    ReceiveChat(GameLanguage.Instance.FaceToTrade, ChatType.System);
                     return;
                 }
 
@@ -10486,7 +10486,7 @@ namespace Server.MirObjects
                         }
                         else if (FreeSpace(Info.Inventory) < 1)
                         {
-                            ReceiveChat(GameLanguage.NoBagSpace, ChatType.System);
+                            ReceiveChat(GameLanguage.Instance.NoBagSpace, ChatType.System);
                             cancel = true;
                         }
                         else
@@ -11046,7 +11046,7 @@ namespace Server.MirObjects
 
             if (player == null)
             {
-                ReceiveChat(string.Format(GameLanguage.CouldNotFindPlayer, name), ChatType.System);
+                ReceiveChat(string.Format(GameLanguage.Instance.CouldNotFindPlayer, name), ChatType.System);
                 return;
             }
 
@@ -11099,7 +11099,7 @@ namespace Server.MirObjects
 
             if (player == null)
             {
-                ReceiveChat(string.Format(GameLanguage.CouldNotFindPlayer, name), ChatType.System);
+                ReceiveChat(string.Format(GameLanguage.Instance.CouldNotFindPlayer, name), ChatType.System);
                 return;
             }
 
@@ -12800,7 +12800,7 @@ namespace Server.MirObjects
         {
             if (Info.Mentor == 0)
             {
-                ReceiveChat(GameLanguage.NoMentorship, ChatType.System);
+                ReceiveChat(GameLanguage.Instance.NoMentorship, ChatType.System);
                 return;
             }
 

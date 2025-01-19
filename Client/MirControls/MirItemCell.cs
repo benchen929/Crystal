@@ -2116,14 +2116,14 @@ namespace Client.MirControls
                 case MirGender.Male:
                     if (!Item.Info.RequiredGender.HasFlag(RequiredGender.Male))
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.NotFemale, ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.NotFemale, ChatType.System);
                         return false;
                     }
                     break;
                 case MirGender.Female:
                     if (!Item.Info.RequiredGender.HasFlag(RequiredGender.Female))
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.NotMale, ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.NotMale, ChatType.System);
                         return false;
                     }
                     break;
@@ -2173,7 +2173,7 @@ namespace Client.MirControls
                 case RequiredType.Level:
                     if (actor.Level < Item.Info.RequiredAmount)
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.LowLevel, ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.LowLevel, ChatType.System);
                         return false;
                     }
                     break;
@@ -2194,21 +2194,21 @@ namespace Client.MirControls
                 case RequiredType.MaxDC:
                     if (actor.Stats[Stat.MaxDC] < Item.Info.RequiredAmount)
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.LowDC, ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.LowDC, ChatType.System);
                         return false;
                     }
                     break;
                 case RequiredType.MaxMC:
                     if (actor.Stats[Stat.MaxMC] < Item.Info.RequiredAmount)
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.LowMC, ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.LowMC, ChatType.System);
                         return false;
                     }
                     break;
                 case RequiredType.MaxSC:
                     if (actor.Stats[Stat.MaxSC] < Item.Info.RequiredAmount)
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.LowSC, ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.LowSC, ChatType.System);
                         return false;
                     }
                     break;
@@ -2298,14 +2298,14 @@ namespace Client.MirControls
                 case MirGender.Male:
                     if (!i.Info.RequiredGender.HasFlag(RequiredGender.Male))
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.NotFemale, ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.NotFemale, ChatType.System);
                         return false;
                     }
                     break;
                 case MirGender.Female:
                     if (!i.Info.RequiredGender.HasFlag(RequiredGender.Female))
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.NotMale, ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.NotMale, ChatType.System);
                         return false;
                     }
                     break;
@@ -2355,7 +2355,7 @@ namespace Client.MirControls
                 case RequiredType.Level:
                     if (actor.Level < i.Info.RequiredAmount)
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.LowLevel, ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.LowLevel, ChatType.System);
                         return false;
                     }
                     break;
@@ -2376,21 +2376,21 @@ namespace Client.MirControls
                 case RequiredType.MaxDC:
                     if (actor.Stats[Stat.MaxDC] < i.Info.RequiredAmount)
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.LowDC, ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.LowDC, ChatType.System);
                         return false;
                     }
                     break;
                 case RequiredType.MaxMC:
                     if (actor.Stats[Stat.MaxMC] < i.Info.RequiredAmount)
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.LowMC, ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.LowMC, ChatType.System);
                         return false;
                     }
                     break;
                 case RequiredType.MaxSC:
                     if (actor.Stats[Stat.MaxSC] < i.Info.RequiredAmount)
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.LowSC, ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.LowSC, ChatType.System);
                         return false;
                     }
                     break;
@@ -2442,7 +2442,7 @@ namespace Client.MirControls
             {
                 if (i.Weight - (Item != null ? Item.Weight : 0) + actor.CurrentHandWeight > actor.Stats[Stat.HandWeight])
                 {
-                    GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.TooHeavyToHold, ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.TooHeavyToHold, ChatType.System);
                     return false;
                 }
             }

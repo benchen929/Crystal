@@ -737,13 +737,13 @@ namespace Client.MirScenes.Dialogs
             //Expire
             if (GameScene.User.IntelligentCreatures[selectedCreature].Expire == DateTime.MinValue)
             {
-                CreatureDeadline.Text = string.Format(GameLanguage.ExpireNever);
+                CreatureDeadline.Text = string.Format(GameLanguage.Instance.ExpireNever);
             }
             else
             {
                 var seconds = (GameScene.User.IntelligentCreatures[selectedCreature].Expire - CMain.Now).TotalSeconds;
 
-                CreatureDeadline.Text = string.Format(GameLanguage.Expire, Functions.PrintTimeSpanFromSeconds(seconds));
+                CreatureDeadline.Text = string.Format(GameLanguage.Instance.Expire, Functions.PrintTimeSpanFromSeconds(seconds));
             }
 
             if (GameScene.User.IntelligentCreatures[selectedCreature].MaintainFoodTime == 0)
@@ -835,7 +835,7 @@ namespace Client.MirScenes.Dialogs
 
             if (!GameScene.User.IntelligentCreatures.Any())
             {
-                MirMessageBox messageBox = new MirMessageBox(GameLanguage.NoCreatures, MirMessageBoxButtons.OK);
+                MirMessageBox messageBox = new MirMessageBox(GameLanguage.Instance.NoCreatures, MirMessageBoxButtons.OK);
                 messageBox.Show();
                 return;
             }

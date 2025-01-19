@@ -93,7 +93,7 @@ namespace Client.MirScenes
         public override void Process()
         {
             if (!Network.Connected && _connectBox.Label != null)
-                _connectBox.Label.Text = string.Format(GameLanguage.AttemptingConnect,"\n\n", Network.ConnectAttempt);
+                _connectBox.Label.Text = string.Format(GameLanguage.Instance.AttemptingConnect,"\n\n", Network.ConnectAttempt);
         }
         public override void ProcessPacket(Packet p)
         {
@@ -242,11 +242,11 @@ namespace Client.MirScenes
                     _password.NewPassword1TextBox.SetFocus();
                     break;
                 case 4:
-                    MirMessageBox.Show(GameLanguage.NoAccountID);
+                    MirMessageBox.Show(GameLanguage.Instance.NoAccountID);
                     _password.AccountIDTextBox.SetFocus();
                     break;
                 case 5:
-                    MirMessageBox.Show(GameLanguage.IncorrectPasswordAccountID);
+                    MirMessageBox.Show(GameLanguage.Instance.IncorrectPasswordAccountID);
                     _password.CurrentPasswordTextBox.SetFocus();
                     _password.CurrentPasswordTextBox.Text = string.Empty;
                     break;
@@ -282,11 +282,11 @@ namespace Client.MirScenes
                     _login.PasswordTextBox.SetFocus();
                     break;
                 case 3:
-                    MirMessageBox.Show(GameLanguage.NoAccountID);
+                    MirMessageBox.Show(GameLanguage.Instance.NoAccountID);
                     _login.PasswordTextBox.SetFocus();
                     break;
                 case 4:
-                    MirMessageBox.Show(GameLanguage.IncorrectPasswordAccountID);
+                    MirMessageBox.Show(GameLanguage.Instance.IncorrectPasswordAccountID);
                     _login.PasswordTextBox.Text = string.Empty;
                     _login.PasswordTextBox.SetFocus();
                     break;

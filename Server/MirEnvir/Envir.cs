@@ -641,7 +641,7 @@ namespace Server.MirEnvir
                             userTime = Time + Settings.Minute * 5;
                             Broadcast(new S.Chat
                             {
-                                Message = string.Format(GameLanguage.OnlinePlayers, Players.Count),
+                                Message = string.Format(GameLanguage.Instance.OnlinePlayers, Players.Count),
                                 Type = ChatType.Hint
                             });
                         }
@@ -1819,13 +1819,13 @@ namespace Server.MirEnvir
 
             LoadConquests();
 
-            _listener = new TcpListener(IPAddress.Parse(Settings.IPAddress), Settings.Port);
+            _listener = new TcpListener(IPAddress.Any, Settings.Port);
             _listener.Start();
             _listener.BeginAcceptTcpClient(Connection, null);
 
             if (StatusPortEnabled)
             {
-                _StatusPort = new TcpListener(IPAddress.Parse(Settings.IPAddress), 3000);
+                _StatusPort = new TcpListener(IPAddress.Any, 3000);
                 _StatusPort.Start();
                 _StatusPort.BeginAcceptTcpClient(StatusConnection, null);
             }

@@ -1,4 +1,5 @@
 ﻿using Client.MirSounds;
+using Launcher;
 
 namespace Client
 {
@@ -67,7 +68,7 @@ namespace Client
         public static int RemainingErrorLogs = 100;
 
         //Graphics
-        public static bool FullScreen = true, Borderless = true, TopMost = true, MouseClip = false;
+        public static bool FullScreen = true, Borderless = false, TopMost = true, MouseClip = false;
         public static string FontName = "Arial"; //"MS Sans Serif"
         public static float FontSize = 8F;
         public static bool UseMouseCursors = true;
@@ -199,7 +200,7 @@ namespace Client
 
         public static void Load()
         {
-            GameLanguage.LoadClientLanguage(@".\Language.ini");
+            GameLanguage.LoadClientLanguage(ConfigLauncher.Instance.Language);
 
             if (!Directory.Exists(DataPath)) Directory.CreateDirectory(DataPath);
             if (!Directory.Exists(MapPath)) Directory.CreateDirectory(MapPath);

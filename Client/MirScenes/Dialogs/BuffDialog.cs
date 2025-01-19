@@ -367,15 +367,15 @@ namespace Client.MirScenes.Dialogs
 
             if (buff.Paused)
             {
-                text += GameLanguage.ExpirePaused;
+                text += GameLanguage.Instance.ExpirePaused;
             }
             else if (buff.Infinite)
             {
-                text += GameLanguage.ExpireNever;
+                text += GameLanguage.Instance.ExpireNever;
             }
             else
             {
-                text += string.Format(GameLanguage.Expire, Functions.PrintTimeSpanFromSeconds(Math.Round((buff.ExpireTime - CMain.Time) / 1000D)));
+                text += string.Format(GameLanguage.Instance.Expire, Functions.PrintTimeSpanFromSeconds(Math.Round((buff.ExpireTime - CMain.Time) / 1000D)));
             }
 
             if (!string.IsNullOrEmpty(buff.Caster)) text += string.Format("\nCaster: {0}", buff.Caster);
@@ -703,7 +703,7 @@ namespace Client.MirScenes.Dialogs
                     break;
             }
 
-            text += string.Format(GameLanguage.Expire, Functions.PrintTimeSpanFromSeconds(Math.Round((buff.ExpireTime - CMain.Time) / 1000D)));
+            text += string.Format(GameLanguage.Instance.Expire, Functions.PrintTimeSpanFromSeconds(Math.Round((buff.ExpireTime - CMain.Time) / 1000D)));
 
             if (!string.IsNullOrEmpty(buff.Caster)) text += string.Format("\nCaster: {0}", buff.Caster);
 

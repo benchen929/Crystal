@@ -11,9 +11,16 @@ namespace Server
 
             VPathTextBox.Text = Settings.VersionPath;
             VersionCheckBox.Checked = Settings.CheckVersion;
+            if (Settings.Language == "English")
+            {
+                comboBox1.SelectedIndex = 0;
+            }
+            else
+            {
+                comboBox1.SelectedIndex = 1;
+            }
             RelogDelayTextBox.Text = Settings.RelogDelay.ToString();
 
-            IPAddressTextBox.Text = Settings.IPAddress;
             PortTextBox.Text = Settings.Port.ToString();
             TimeOutTextBox.Text = Settings.TimeOut.ToString();
             MaxUserTextBox.Text = Settings.MaxUser.ToString();
@@ -59,10 +66,7 @@ namespace Server
         {
             Settings.VersionPath = VPathTextBox.Text;
             Settings.CheckVersion = VersionCheckBox.Checked;
-
-            IPAddress tempIP;
-            if (IPAddress.TryParse(IPAddressTextBox.Text, out tempIP))
-                Settings.IPAddress = tempIP.ToString();
+            Settings.Language = comboBox1.Text;
 
             Settings.StartHTTPService = StartHTTPCheckBox.Checked;
             if (tryParseHttp())
@@ -190,6 +194,11 @@ namespace Server
         private void StartHTTPCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             Settings.StartHTTPService = StartHTTPCheckBox.Checked;
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

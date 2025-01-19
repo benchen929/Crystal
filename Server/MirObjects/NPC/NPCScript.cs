@@ -1068,7 +1068,7 @@ namespace Server.MirObjects
                     }
                     else
                     {
-                        player.ReceiveChat(GameLanguage.NotInGuild, ChatType.System);
+                        player.ReceiveChat(GameLanguage.Instance.NotInGuild, ChatType.System);
                     }
                     break;
                 case SendParcelKey:

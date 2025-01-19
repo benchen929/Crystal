@@ -138,14 +138,14 @@ namespace Client.MirScenes.Dialogs
                 Location = new Point(60, 241),
                 Parent = this,
                 Sound = SoundList.ButtonA,
-                Hint = GameLanguage.AddFriend
+                Hint = GameLanguage.Instance.AddFriend
             };
             AddButton.Click += (o, e) =>
             {
-                string message = GameLanguage.FriendEnterAddName;
+                string message = GameLanguage.Instance.FriendEnterAddName;
                 if (_blockedTab)
                 {
-                    message = GameLanguage.FriendEnterBlockName;
+                    message = GameLanguage.Instance.FriendEnterBlockName;
                 }
 
                 MirInputBox inputBox = new MirInputBox(message);
@@ -168,7 +168,7 @@ namespace Client.MirScenes.Dialogs
                 Location = new Point(88, 241),
                 Parent = this,
                 Sound = SoundList.ButtonA,
-                Hint = GameLanguage.RemoveFriend,
+                Hint = GameLanguage.Instance.RemoveFriend,
             };
             RemoveButton.Click += (o, e) =>
             {
@@ -194,7 +194,7 @@ namespace Client.MirScenes.Dialogs
                 Location = new Point(116, 241),
                 Parent = this,
                 Sound = SoundList.ButtonA,
-                Hint = GameLanguage.FriendMemo
+                Hint = GameLanguage.Instance.FriendMemo
 
             };
             MemoButton.Click += (o, e) =>
@@ -214,7 +214,7 @@ namespace Client.MirScenes.Dialogs
                 Location = new Point(144, 241),
                 Parent = this,
                 Sound = SoundList.ButtonA,
-                Hint = GameLanguage.FriendMail,
+                Hint = GameLanguage.Instance.FriendMail,
             };
             EmailButton.Click += (o, e) =>
             {
@@ -232,7 +232,7 @@ namespace Client.MirScenes.Dialogs
                 Location = new Point(172, 241),
                 Parent = this,
                 Sound = SoundList.ButtonA,
-                Hint = GameLanguage.FriendWhisper
+                Hint = GameLanguage.Instance.FriendWhisper
             };
             WhisperButton.Click += (o, e) =>
             {

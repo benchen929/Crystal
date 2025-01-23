@@ -58,6 +58,7 @@
             PortTextBox = new TextBox();
             label3 = new Label();
             tabPage3 = new TabPage();
+            AllowObserveCheckBox = new CheckBox();
             label9 = new Label();
             label8 = new Label();
             Resolution_textbox = new TextBox();
@@ -407,6 +408,7 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(AllowObserveCheckBox);
             tabPage3.Controls.Add(label9);
             tabPage3.Controls.Add(label8);
             tabPage3.Controls.Add(Resolution_textbox);
@@ -427,6 +429,17 @@
             tabPage3.Text = "Permissions";
             tabPage3.UseVisualStyleBackColor = true;
             tabPage3.Click += tabPage3_Click;
+            // 
+            // AllowObserveCheckBox
+            // 
+            AllowObserveCheckBox.AutoSize = true;
+            AllowObserveCheckBox.Location = new Point(28, 206);
+            AllowObserveCheckBox.Margin = new Padding(3, 4, 3, 4);
+            AllowObserveCheckBox.Name = "AllowObserveCheckBox";
+            AllowObserveCheckBox.Size = new Size(111, 21);
+            AllowObserveCheckBox.TabIndex = 17;
+            AllowObserveCheckBox.Text = "Allow Observe";
+            AllowObserveCheckBox.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -458,7 +471,7 @@
             // AllowArcherCheckBox
             // 
             AllowArcherCheckBox.AutoSize = true;
-            AllowArcherCheckBox.Location = new Point(28, 258);
+            AllowArcherCheckBox.Location = new Point(28, 267);
             AllowArcherCheckBox.Margin = new Padding(3, 4, 3, 4);
             AllowArcherCheckBox.Name = "AllowArcherCheckBox";
             AllowArcherCheckBox.Size = new Size(225, 21);
@@ -469,7 +482,7 @@
             // AllowAssassinCheckBox
             // 
             AllowAssassinCheckBox.AutoSize = true;
-            AllowAssassinCheckBox.Location = new Point(28, 226);
+            AllowAssassinCheckBox.Location = new Point(28, 235);
             AllowAssassinCheckBox.Margin = new Padding(3, 4, 3, 4);
             AllowAssassinCheckBox.Name = "AllowAssassinCheckBox";
             AllowAssassinCheckBox.Size = new Size(236, 21);
@@ -680,6 +693,7 @@
             Controls.Add(configTabs);
             Margin = new Padding(3, 4, 3, 4);
             Name = "ConfigForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Server Config Form";
             FormClosed += ConfigForm_FormClosed;
             configTabs.ResumeLayout(false);
@@ -753,5 +767,6 @@
         private System.Windows.Forms.Label label17;
         private Label label2;
         private ComboBox comboBox1;
+        private CheckBox AllowObserveCheckBox;
     }
 }

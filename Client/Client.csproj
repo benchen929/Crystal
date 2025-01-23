@@ -69,13 +69,19 @@
     <None Update="GameDocumentationList.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="GameDoc\UpdateLog.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="GameDoc\更新日志.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="MIR2.ICO">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="GameDoc\" />
+    <Folder Include="GameDoc\Source\" />
   </ItemGroup>
 
 </Project>

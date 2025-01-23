@@ -35,6 +35,7 @@ namespace Server
             NCharacterCheckBox.Checked = Settings.AllowNewCharacter;
             DCharacterCheckBox.Checked = Settings.AllowDeleteCharacter;
             StartGameCheckBox.Checked = Settings.AllowStartGame;
+            AllowObserveCheckBox.Checked = Settings.AllowObserve;
             AllowAssassinCheckBox.Checked = Settings.AllowCreateAssassin;
             AllowArcherCheckBox.Checked = Settings.AllowCreateArcher;
             Resolution_textbox.Text = Settings.AllowedResolution.ToString();
@@ -99,6 +100,7 @@ namespace Server
             Settings.AllowNewCharacter = NCharacterCheckBox.Checked;
             Settings.AllowDeleteCharacter = DCharacterCheckBox.Checked;
             Settings.AllowStartGame = StartGameCheckBox.Checked;
+            Settings.AllowObserve = AllowObserveCheckBox.Checked;
             Settings.AllowCreateAssassin = AllowAssassinCheckBox.Checked;
             Settings.AllowCreateArcher = AllowArcherCheckBox.Checked;
 

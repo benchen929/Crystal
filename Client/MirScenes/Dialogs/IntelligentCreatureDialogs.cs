@@ -2,6 +2,7 @@
 using Client.MirGraphics;
 using Client.MirNetwork;
 using Client.MirSounds;
+using SlimDX.Direct3D11;
 using System.Text.RegularExpressions;
 using C = ClientPackets;
 
@@ -446,13 +447,13 @@ namespace Client.MirScenes.Dialogs
 
             if (sender == CreatureRenameButton)
             {
-                MirInputBox inputBox = new MirInputBox("Please enter a new name for the creature.");
+                MirInputBox inputBox = new MirInputBox(GameLanguage.Instance.CreatureName1);
                 inputBox.InputTextBox.Text = GameScene.User.IntelligentCreatures[selectedCreature].CustomName;
                 inputBox.OKButton.Click += (o1, e1) =>
                 {
                     if (!CreatureNameReg.IsMatch(inputBox.InputTextBox.Text))
                     {
-                        MirMessageBox failedMessage = new MirMessageBox(string.Format("Creature name must be between {0} and {1} characters.", Globals.MinCharacterNameLength, Globals.MaxCharacterNameLength), MirMessageBoxButtons.OK);
+                        MirMessageBox failedMessage = new MirMessageBox(string.Format(GameLanguage.Instance.NameLength, Globals.MinCharacterNameLength, Globals.MaxCharacterNameLength), MirMessageBoxButtons.OK);
                         failedMessage.Show();
                     }
                     else
@@ -493,12 +494,12 @@ namespace Client.MirScenes.Dialogs
             }
             if (sender == ReleaseButton)
             {
-                MirInputBox verificationBox = new MirInputBox("Please enter the creature's name for verification.");
+                MirInputBox verificationBox = new MirInputBox(GameLanguage.Instance.CreatureName2);
                 verificationBox.OKButton.Click += (o1, e1) =>
                 {
                     if (String.Compare(verificationBox.InputTextBox.Text, GameScene.User.IntelligentCreatures[selectedCreature].CustomName, StringComparison.OrdinalIgnoreCase) != 0)
                     {
-                        GameScene.Scene.ChatDialog.ReceiveChat("Verification Failed!!", ChatType.System);
+                        GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.VerificationFailed, ChatType.System);
                     }
                     else
                     {
@@ -726,13 +727,13 @@ namespace Client.MirScenes.Dialogs
 
             var rules = GameScene.User.IntelligentCreatures[selectedCreature].CreatureRules;
 
-            var semi = rules.SemiAutoPickupEnabled ? string.Format("{0}x{0} {1}{2}{3}", rules.AutoPickupRange, rules.AutoPickupEnabled ? "auto/" : "", rules.SemiAutoPickupEnabled ? "semi-auto" : "", rules.MousePickupEnabled ? ", " : "") : "";
+            var semi = rules.SemiAutoPickupEnabled ? string.Format("{0}x{0} {1}{2}{3}", rules.AutoPickupRange, rules.AutoPickupEnabled ? GameLanguage.Instance.Auto : "", rules.SemiAutoPickupEnabled ? GameLanguage.Instance.SemiAuto : "", rules.MousePickupEnabled ? ", " : "") : "";
             var mouse = rules.SemiAutoPickupEnabled ? string.Format("{0}x{0} mouse", rules.MousePickupRange) : "";
 
             CreatureName.Text = GameScene.User.IntelligentCreatures[selectedCreature].CustomName;
-            CreatureInfo.Text = string.Format("Can pickup items ({0}{1}).", semi, mouse);
-            CreatureInfo1.Text = rules.CanProduceBlackStone ? "Can produce BlackStones." : "";
-            CreatureInfo2.Text = rules.CanProduceBlackStone ? "Can produce Pearls, used to buy Creature items." : "";
+            CreatureInfo.Text = string.Format(GameLanguage.Instance.PickupItems, semi, mouse);
+            CreatureInfo1.Text = rules.CanProduceBlackStone ? GameLanguage.Instance.ProduceBlackStones : "";
+            CreatureInfo2.Text = rules.CanProduceBlackStone ? GameLanguage.Instance.ProducePearls : "";
 
             //Expire
             if (GameScene.User.IntelligentCreatures[selectedCreature].Expire == DateTime.MinValue)
@@ -749,7 +750,7 @@ namespace Client.MirScenes.Dialogs
             if (GameScene.User.IntelligentCreatures[selectedCreature].MaintainFoodTime == 0)
                 CreatureMaintainFoodBuff.Text = "0";
             else
-                CreatureMaintainFoodBuff.Text = string.Format("FoodBuff: {0}", Functions.PrintTimeSpanFromSeconds(GameScene.User.IntelligentCreatures[selectedCreature].MaintainFoodTime));
+                CreatureMaintainFoodBuff.Text = string.Format(GameLanguage.Instance.FoodBuff, Functions.PrintTimeSpanFromSeconds(GameScene.User.IntelligentCreatures[selectedCreature].MaintainFoodTime));
 
             int StartIndex = CreatureButtons[SelectedCreatureSlot].AnimDefaultIdx;
             int AnimCount = CreatureButtons[SelectedCreatureSlot].AnimDefaultCount;
@@ -1127,7 +1128,7 @@ namespace Client.MirScenes.Dialogs
     }
     public sealed class IntelligentCreatureOptionsDialog : MirImageControl
     {
-        public readonly string[] OptionNames = { "All Items", "Gold", "Weapons", "Armours", "Helmets", "Boots", "Belts", "Jewelry", "Others" };
+        public readonly string[] OptionNames = { GameLanguage.Instance.Chat_All, GameLanguage.Instance.Gold, GameLanguage.Instance.ItemTypeWeapon, GameLanguage.Instance.ItemTypeArmour, GameLanguage.Instance.ItemTypeHelmet, GameLanguage.Instance.ItemTypeBoots, GameLanguage.Instance.ItemTypeBelt, GameLanguage.Instance.ItemTypeGem, GameLanguage.Instance.Others };
         public IntelligentCreatureItemFilter Filter;
         public Point locationOffset = new Point(450, 63);
 
@@ -1264,7 +1265,7 @@ namespace Client.MirScenes.Dialogs
     }
     public sealed class IntelligentCreatureOptionsGradeDialog : MirImageControl
     {
-        private string[] GradeStrings = { "All", "Common", "Rare", "Mythical", "Legendary", "Heroic" };
+        private string[] GradeStrings = { GameLanguage.Instance.Chat_All, GameLanguage.Instance.ItemGradeCommon, GameLanguage.Instance.ItemGradeRare, GameLanguage.Instance.ItemGradeMythical, GameLanguage.Instance.ItemGradeLegendary, GameLanguage.Instance.ItemGradeHeroic };
 
         public MirButton NextButton, PrevButton;
         public MirLabel GradeLabel;

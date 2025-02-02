@@ -112,7 +112,7 @@ namespace Client.MirScenes.Dialogs
             };
             HPButton.Click += (o1, e) =>
             {
-                MirAmountBox amountBox = new MirAmountBox("Enter a value", 116, 99);
+                MirAmountBox amountBox = new MirAmountBox(GameLanguage.Instance.EnterValue, 116, 99);
                 amountBox.OKButton.Click += (o, a) => Network.Enqueue(new C.SetAutoPotValue { Stat = Stat.HP, Value = amountBox.Amount });
                 amountBox.Show();
             };
@@ -131,7 +131,7 @@ namespace Client.MirScenes.Dialogs
             };
             MPButton.Click += (o1, e) =>
             {
-                MirAmountBox amountBox = new MirAmountBox("Enter a value", 116, 99);
+                MirAmountBox amountBox = new MirAmountBox(GameLanguage.Instance.EnterValue, 116, 99);
                 amountBox.OKButton.Click += (o, a) => Network.Enqueue(new C.SetAutoPotValue { Stat = Stat.MP, Value = amountBox.Amount });
                 amountBox.Show();
             };
@@ -771,7 +771,7 @@ namespace Client.MirScenes.Dialogs
                     Library = Libraries.Prguse,
                     Parent = this,
                     Sound = SoundList.ButtonA,
-                    Hint = $"Hero Behaviour: {Enum.GetName(typeof(HeroBehaviour), i)}",
+                    Hint = GameLanguage.Instance.HeroBehaviour + $"{Enum.GetName(typeof(HeroBehaviour), i)}",
                     AllowDisabledMouseOver = true
                 };
                 BehaviourButtons[i].Click += (o, e) =>
@@ -825,7 +825,7 @@ namespace Client.MirScenes.Dialogs
                 Avatars[i] = new HeroManageAvatar() { Parent = this };
                 Avatars[i].Click += (o, e) =>
                 {
-                    MirMessageBox messageBox = new MirMessageBox($"Would you like to make {Avatars[index].Info.Name} your active Hero?", MirMessageBoxButtons.YesNo);
+                    MirMessageBox messageBox = new MirMessageBox(string.Format(GameLanguage.Instance.ActiveHero, Avatars[index].Info.Name), MirMessageBoxButtons.YesNo);
                     messageBox.YesButton.Click += (o, e) => Network.Enqueue(new C.ChangeHero { ListIndex = index + 1 });
                     messageBox.Show();
                 };

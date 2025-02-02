@@ -23,9 +23,9 @@ namespace Client.MirScenes.Dialogs
         public MirTextBox Search;
         public MirImageControl TitleLabel, FilterBackground;
 
-        public string ClassFilter = "Show All";
-        public string TypeFilter = "Show All";
-        public string SectionFilter = "Show All";
+        public string ClassFilter = GameLanguage.Instance.ShowAll;
+        public string TypeFilter = GameLanguage.Instance.ShowAll;
+        public string SectionFilter = GameLanguage.Instance.ShowAll;
 
         public int StartIndex = 0;
         public int Page = 0;
@@ -184,10 +184,10 @@ namespace Client.MirScenes.Dialogs
 
             PaymentTypeGold = new MirCheckBox
             {
-                LabelText = "Buy with Gold",
+                LabelText = GameLanguage.Instance.BuyWithGold,
                 Location = new Point(250, 449),
                 Parent = this,
-                Hint = "Buy item(s) with Gold.",
+                Hint = GameLanguage.Instance.BuyWithGold,
                 Index = 2086,
                 UnTickedIndex = 2086,
                 TickedIndex = 2087,
@@ -198,10 +198,10 @@ namespace Client.MirScenes.Dialogs
 
             PaymentTypeCredit = new MirCheckBox
             {
-                LabelText = "Buy with Credits",
+                LabelText = GameLanguage.Instance.BuyWithCredits,
                 Location = new Point(340, 449),
                 Parent = this,
-                Hint = "Buy item(s) with Credits.",
+                Hint = GameLanguage.Instance.BuyWithCredits,
                 Index = 2086,
                 UnTickedIndex = 2086,
                 TickedIndex = 2087,

@@ -6,6 +6,7 @@ using Client.MirSounds;
 using SlimDX;
 using Font = System.Drawing.Font;
 using C = ClientPackets;
+using System.IO;
 
 namespace Client.MirScenes.Dialogs
 {
@@ -195,7 +196,7 @@ namespace Client.MirScenes.Dialogs
                 Library = Libraries.Prguse2,
                 Parent = this,
                 Sound = SoundList.ButtonA,
-                Hint = "Search for NPCs"
+                Hint = GameLanguage.Instance.SearchNPC
             };
             SearchButton.Click += (o, e) => Search();
 
@@ -400,12 +401,12 @@ namespace Client.MirScenes.Dialogs
         {
             if (SelectedNPC == null || !SelectedNPC.Info.CanTeleportTo) return;
 
-            MirMessageBox messageBox = new MirMessageBox($"Teleport to this NPC for {GameScene.TeleportToNPCCost} Gold?", MirMessageBoxButtons.YesNo);
+            MirMessageBox messageBox = new MirMessageBox(string.Format(GameLanguage.Instance.TeleportToNPC1, GameScene.TeleportToNPCCost), MirMessageBoxButtons.YesNo);
             messageBox.YesButton.Click += (o, e) =>
             {
                 if (GameScene.Gold < GameScene.TeleportToNPCCost)
                 {
-                    MirMessageBox messageBox2 = new MirMessageBox("Not enough Gold.", MirMessageBoxButtons.OK);
+                    MirMessageBox messageBox2 = new MirMessageBox(GameLanguage.Instance.LowGold, MirMessageBoxButtons.OK);
                     messageBox2.Show();
                     return;
                 }
@@ -618,7 +619,7 @@ namespace Client.MirScenes.Dialogs
 
             if (path == null || path.Count == 0)
             {
-                GameScene.Scene.ChatDialog.ReceiveChat("Could not find suitable path.", ChatType.System);
+                GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.NoPath, ChatType.System);
             }
             else
             {

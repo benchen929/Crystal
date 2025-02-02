@@ -61,6 +61,7 @@ namespace Server
             columnHeader4 = new ColumnHeader();
             columnHeader5 = new ColumnHeader();
             columnHeader6 = new ColumnHeader();
+            columnHeader7 = new ColumnHeader();
             StatusBar = new StatusStrip();
             PlayersLabel = new ToolStripStatusLabel();
             MonsterLabel = new ToolStripStatusLabel();
@@ -319,7 +320,7 @@ namespace Server
             // GuildListView
             // 
             GuildListView.Activation = ItemActivation.OneClick;
-            GuildListView.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6 });
+            GuildListView.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
             GuildListView.Dock = DockStyle.Fill;
             GuildListView.FullRowSelect = true;
             GuildListView.GridLines = true;
@@ -334,21 +335,22 @@ namespace Server
             // columnHeader1
             // 
             columnHeader1.Text = "Index";
+            columnHeader1.Width = 45;
             // 
             // columnHeader2
             // 
             columnHeader2.Text = "Name";
-            columnHeader2.Width = 115;
+            columnHeader2.Width = 80;
             // 
             // columnHeader3
             // 
             columnHeader3.Text = "Leader";
-            columnHeader3.Width = 130;
+            columnHeader3.Width = 80;
             // 
             // columnHeader4
             // 
-            columnHeader4.Text = "Member Count";
-            columnHeader4.Width = 100;
+            columnHeader4.Text = "Members";
+            columnHeader4.Width = 70;
             // 
             // columnHeader5
             // 
@@ -359,6 +361,11 @@ namespace Server
             // 
             columnHeader6.Text = "Gold";
             columnHeader6.Width = 75;
+            // 
+            // columnHeader7
+            // 
+            columnHeader7.Text = "GT";
+            columnHeader7.Width = 120;
             // 
             // StatusBar
             // 
@@ -879,6 +886,7 @@ namespace Server
         private ToolStripMenuItem marketToolStripMenuItem;
         private ToolStripMenuItem namelistsToolStripMenuItem;
         internal TextBox ChatLogTextBox;
+        private ColumnHeader columnHeader7;
     }
 }
 

@@ -1,4 +1,4 @@
-最后更新代码时间：2025-01-05
+最后更新代码时间：2025-01-10
 
 503 Use AUTH first
 使用：Explicit FTP over TLS and insecure plain FTP 协议即可。

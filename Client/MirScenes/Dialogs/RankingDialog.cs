@@ -1,6 +1,7 @@
 ﻿using Client.MirControls;
 using Client.MirGraphics;
 using Client.MirSounds;
+using ServerPackets;
 
 namespace Client.MirScenes.Dialogs
 {
@@ -60,7 +61,7 @@ namespace Client.MirScenes.Dialogs
                 PressedIndex = 752,
                 HoverIndex = 753,
                 Library = Libraries.Title,
-                Hint = "Overall TOP 20",
+                Hint = GameLanguage.Instance.RankingAll,
                 Location = new Point(10, 38),
                 Parent = this,
                 Sound = SoundList.ButtonA,
@@ -73,7 +74,7 @@ namespace Client.MirScenes.Dialogs
                 PressedIndex = 761,
                 HoverIndex = 762,
                 Library = Libraries.Title,
-                Hint = "TOP 20 Taoists",
+                Hint = GameLanguage.Instance.RankingTaoists,
                 Location = new Point(40, 38),
                 Parent = this,
                 Sound = SoundList.ButtonA,
@@ -85,7 +86,7 @@ namespace Client.MirScenes.Dialogs
                 PressedIndex = 755,
                 HoverIndex = 756,
                 Library = Libraries.Title,
-                Hint = "TOP 20 Warriors",
+                Hint = GameLanguage.Instance.RankingWarriors,
                 Location = new Point(60, 38),
                 Parent = this,
                 Sound = SoundList.ButtonA,
@@ -97,7 +98,7 @@ namespace Client.MirScenes.Dialogs
                 PressedIndex = 764,
                 HoverIndex = 765,
                 Library = Libraries.Title,
-                Hint = "TOP 20 Wizards",
+                Hint = GameLanguage.Instance.RankingWizards,
                 Location = new Point(80, 38),
                 Parent = this,
                 Sound = SoundList.ButtonA,
@@ -109,7 +110,7 @@ namespace Client.MirScenes.Dialogs
                 PressedIndex = 758,
                 HoverIndex = 759,
                 Library = Libraries.Title,
-                Hint = "TOP 20 Assasins",
+                Hint = GameLanguage.Instance.RankingAssasins,
                 Location = new Point(100, 38),
                 Parent = this,
                 Sound = SoundList.ButtonA,
@@ -121,7 +122,7 @@ namespace Client.MirScenes.Dialogs
                 PressedIndex = 767,
                 HoverIndex = 768,
                 Library = Libraries.Title,
-                Hint = "TOP 20 Archers",
+                Hint = GameLanguage.Instance.RankingArchers,
                 Location = new Point(120, 38),
                 Parent = this,
                 Sound = SoundList.ButtonA,
@@ -181,7 +182,7 @@ namespace Client.MirScenes.Dialogs
             };
 
             OnlineOnlyButton = new MirCheckBox { Index = 2086, UnTickedIndex = 2086, TickedIndex = 2087, Parent = this, Location = new Point(190, Size.Height - 20), Library = Libraries.Prguse };
-            OnlineOnlyButton.LabelText = "Online Only";
+            OnlineOnlyButton.LabelText = GameLanguage.Instance.OnlineOnly;
             OnlineOnlyButton.Click += (o, e) =>
             {
                 OnlineOnly = OnlineOnlyButton.Checked;
@@ -311,9 +312,9 @@ namespace Client.MirScenes.Dialogs
                     Rows[i].Update(RankList[RankType][i], RowOffset + i + 1);
             }
             if (Rank[RankType] == 0)
-                MyRank.Text = "Not Listed";
+                MyRank.Text = GameLanguage.Instance.NotListed;
             else
-                MyRank.Text = string.Format("Ranked: {0}", Rank[RankType]);
+                MyRank.Text = string.Format(GameLanguage.Instance.RankedLabel, Rank[RankType]);
         }
 
         public sealed class RankingRow : MirControl

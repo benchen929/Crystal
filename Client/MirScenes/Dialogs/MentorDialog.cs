@@ -2,6 +2,7 @@
 using Client.MirGraphics;
 using Client.MirNetwork;
 using Client.MirSounds;
+using ClientPackets;
 using C = ClientPackets;
 
 namespace Client.MirScenes.Dialogs
@@ -93,7 +94,7 @@ namespace Client.MirScenes.Dialogs
             {
                 if (MentorLevel != 0)
                 {
-                    GameScene.Scene.ChatDialog.ReceiveChat("You already have a Mentor.", ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChat(GameLanguage.Instance.AddMentor1, ChatType.System);
                     return;
                 }
 
@@ -130,7 +131,7 @@ namespace Client.MirScenes.Dialogs
                     return;
                 }
 
-                MirMessageBox messageBox = new MirMessageBox(string.Format("Cancelling a Mentorship early will cause a cooldown. Are you sure?"), MirMessageBoxButtons.YesNo);
+                MirMessageBox messageBox = new MirMessageBox(string.Format(GameLanguage.Instance.RemoveMentor), MirMessageBoxButtons.YesNo);
 
                 messageBox.YesButton.Click += (oo, ee) => Network.Enqueue(new C.CancelMentor { });
                 messageBox.NoButton.Click += (oo, ee) => { messageBox.Dispose(); };
@@ -174,7 +175,7 @@ namespace Client.MirScenes.Dialogs
                 NotControl = true,
                 Font = new Font(Settings.FontName, 7F),
                 Visible = false,
-                Text = "ONLINE",
+                Text = GameLanguage.Instance.Online,
             };
 
             StudentNameLabel = new MirLabel
@@ -212,7 +213,7 @@ namespace Client.MirScenes.Dialogs
                 NotControl = true,
                 Font = new Font(Settings.FontName, 7F),
                 Visible = false,
-                Text = "ONLINE",
+                Text = GameLanguage.Instance.Online,
             };
 
             MentorLabel = new MirLabel
@@ -225,7 +226,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 NotControl = true,
                 Font = new Font(Settings.FontName, 7F),
-                Text = "MENTOR",
+                Text = GameLanguage.Instance.MentorLabel1,
             };
 
             StudentLabel = new MirLabel
@@ -238,7 +239,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 NotControl = true,
                 Font = new Font(Settings.FontName, 7F),
-                Text = "MENTEE",
+                Text = GameLanguage.Instance.MentorLabel2,
             };
 
             MenteeEXPLabel = new MirLabel
@@ -293,7 +294,7 @@ namespace Client.MirScenes.Dialogs
                     StudentOnlineLabel.Visible = false;
 
                 MenteeEXPLabel.Visible = true;
-                MenteeEXPLabel.Text = "MENTEE EXP: " + MenteeEXP;
+                MenteeEXPLabel.Text = GameLanguage.Instance.MentorLabel2 + " EXP: " + MenteeEXP;
             }
             else
             {

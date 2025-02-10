@@ -218,7 +218,7 @@ namespace Client.MirScenes.Dialogs
                 if (item != null)
                 {
                     MountName.Text = item.FriendlyName;
-                    MountLoyalty.Text = string.Format("{0} / {1} Loyalty", item.CurrentDura, item.MaxDura);
+                    MountLoyalty.Text = string.Format(GameLanguage.Instance.NameInfoLabel4, item.CurrentDura, item.MaxDura);
                 }
             }
 

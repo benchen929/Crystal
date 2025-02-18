@@ -322,7 +322,7 @@ namespace Client.MirScenes.Dialogs
             {
                 if (CMain.Time < SearchTime)
                 {
-                    GameScene.Scene.ChatDialog.ReceiveChat(string.Format("You can search again after {0} seconds.", Math.Ceiling((SearchTime - CMain.Time) / 1000D)), ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChat(string.Format(GameLanguage.Instance.SearchAgain, Math.Ceiling((SearchTime - CMain.Time) / 1000D)), ChatType.System);
                     return;
                 }
                 SearchTime = CMain.Time + Globals.SearchDelay;
@@ -350,7 +350,7 @@ namespace Client.MirScenes.Dialogs
                     {
                         if (Selected.Listing.Seller == "For Sale")
                         {
-                            MirMessageBox box = new MirMessageBox(string.Format("{0} has not sold, Are you sure you want to get it back?", Selected.Listing.Item.FriendlyName), MirMessageBoxButtons.YesNo);
+                            MirMessageBox box = new MirMessageBox(string.Format(GameLanguage.Instance.GetBack, Selected.Listing.Item.FriendlyName), MirMessageBoxButtons.YesNo);
                             box.YesButton.Click += (o1, e2) =>
                             {
                                 MarketTime = CMain.Time + 3000;
@@ -368,7 +368,7 @@ namespace Client.MirScenes.Dialogs
                     {
                         if (Selected.Listing.Seller == "No Bid")
                         {
-                            MirMessageBox box = new MirMessageBox(string.Format("{0} has not sold, Are you sure you want to get it back?", Selected.Listing.Item.FriendlyName), MirMessageBoxButtons.YesNo);
+                            MirMessageBox box = new MirMessageBox(string.Format(GameLanguage.Instance.GetBack, Selected.Listing.Item.FriendlyName), MirMessageBoxButtons.YesNo);
                             box.YesButton.Click += (o1, e2) =>
                             {
                                 MarketTime = CMain.Time + 3000;
@@ -390,7 +390,7 @@ namespace Client.MirScenes.Dialogs
                         case MarketItemType.Consign:
                         case MarketItemType.GameShop:
                             {
-                                MirMessageBox box = new MirMessageBox(string.Format("Are you sure you want to buy {0} for {1:#,##0} {2}?", Selected.Listing.Item.FriendlyName, Selected.Listing.Price, MarketType == MarketPanelType.GameShop ? "Credits" : "Gold"), MirMessageBoxButtons.YesNo);
+                                MirMessageBox box = new MirMessageBox(string.Format(GameLanguage.Instance.BuyItem, Selected.Listing.Item.FriendlyName, Selected.Listing.Price, MarketType == MarketPanelType.GameShop ? "Credits" : "Gold"), MirMessageBoxButtons.YesNo);
                                 box.YesButton.Click += (o1, e2) =>
                                 {
                                     MarketTime = CMain.Time + 3000;
@@ -401,11 +401,11 @@ namespace Client.MirScenes.Dialogs
                             break;
                         case MarketItemType.Auction:
                             {
-                                MirAmountBox bidAmount = new MirAmountBox("Bid Amount:", Selected.Listing.Item.Info.Image, uint.MaxValue, Selected.Listing.Price + 1, Selected.Listing.Price + 1);
+                                MirAmountBox bidAmount = new MirAmountBox(GameLanguage.Instance.BidAmount, Selected.Listing.Item.Info.Image, uint.MaxValue, Selected.Listing.Price + 1, Selected.Listing.Price + 1);
 
                                 bidAmount.OKButton.Click += (o1, e1) =>
                                 {
-                                    MirMessageBox box = new MirMessageBox(string.Format("Are you sure you want to bid {0:#,##0} Gold for {1}?", bidAmount.Amount, Selected.Listing.Item.FriendlyName), MirMessageBoxButtons.YesNo);
+                                    MirMessageBox box = new MirMessageBox(string.Format(GameLanguage.Instance.BidItem, bidAmount.Amount, Selected.Listing.Item.FriendlyName), MirMessageBoxButtons.YesNo);
                                     box.YesButton.Click += (o2, e2) =>
                                     {
                                         MarketTime = CMain.Time + 3000;
@@ -495,7 +495,7 @@ namespace Client.MirScenes.Dialogs
                 if (String.IsNullOrEmpty(SearchTextBox.Text)) return;
                 if (CMain.Time < SearchTime)
                 {
-                    GameScene.Scene.ChatDialog.ReceiveChat(string.Format("You can search again after {0} seconds.", Math.Ceiling((SearchTime - CMain.Time) / 1000D)), ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChat(string.Format(GameLanguage.Instance.SearchAgain, Math.Ceiling((SearchTime - CMain.Time) / 1000D)), ChatType.System);
                     return;
                 }
 
@@ -592,7 +592,7 @@ namespace Client.MirScenes.Dialogs
 
             TitleSalePriceLabel = new MirLabel
             {
-                Text = "SALE PRICE",
+                Text = GameLanguage.Instance.SALE_PRICE,
                 Parent = this,
                 Font = new Font(Settings.FontName, Settings.FontSize - 1, FontStyle.Italic),
                 DrawFormat = TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter,
@@ -602,7 +602,7 @@ namespace Client.MirScenes.Dialogs
 
             TitleSellLabel = new MirLabel
             {
-                Text = "SELL ITEM",
+                Text = GameLanguage.Instance.SELL_ITEM,
                 Parent = this,
                 Font = new Font(Settings.FontName, Settings.FontSize - 1, FontStyle.Italic),
                 DrawFormat = TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter,
@@ -612,7 +612,7 @@ namespace Client.MirScenes.Dialogs
 
             TitleItemLabel = new MirLabel
             {
-                Text = "ITEM",
+                Text = GameLanguage.Instance.ITEM,
                 Parent = this,
                 Font = new Font(Settings.FontName, Settings.FontSize - 1, FontStyle.Italic),
                 DrawFormat = TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter,
@@ -622,7 +622,7 @@ namespace Client.MirScenes.Dialogs
 
             TitlePriceLabel = new MirLabel
             {
-                Text = "PRICE",
+                Text = GameLanguage.Instance.PRICE,
                 Parent = this,
                 Font = new Font(Settings.FontName, Settings.FontSize - 1, FontStyle.Italic),
                 DrawFormat = TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter,
@@ -632,7 +632,7 @@ namespace Client.MirScenes.Dialogs
 
             TitleExpiryLabel = new MirLabel
             {
-                Text = "EXPIRY",
+                Text = GameLanguage.Instance.EXPIRY,
                 Parent = this,
                 Font = new Font(Settings.FontName, Settings.FontSize - 1, FontStyle.Italic),
                 DrawFormat = TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter,
@@ -953,7 +953,7 @@ namespace Client.MirScenes.Dialogs
         {
             if (CMain.Time < SearchTime)
             {
-                GameScene.Scene.ChatDialog.ReceiveChat(string.Format("You can search again after {0} seconds.", Math.Ceiling((SearchTime - CMain.Time) / 1000D)), ChatType.System);
+                GameScene.Scene.ChatDialog.ReceiveChat(string.Format(GameLanguage.Instance.SearchAgain, Math.Ceiling((SearchTime - CMain.Time) / 1000D)), ChatType.System);
                 return;
             }
 
@@ -1057,11 +1057,11 @@ namespace Client.MirScenes.Dialogs
                     TitleItemLabel.Visible = true;
                     TitlePriceLabel.Visible = true;
                     TitleExpiryLabel.Visible = true;
-                    TitleSalePriceLabel.Text = "SALE PRICE";
-                    TitleSellLabel.Text = "SELL ITEM";
-                    TitleItemLabel.Text = "ITEM";
-                    TitlePriceLabel.Text = "PRICE / BID";
-                    TitleExpiryLabel.Text = "SELLER / EXPIRY";
+                    TitleSalePriceLabel.Text = GameLanguage.Instance.SALE_PRICE;
+                    TitleSellLabel.Text = GameLanguage.Instance.SELL_ITEM;
+                    TitleItemLabel.Text = GameLanguage.Instance.ITEM;
+                    TitlePriceLabel.Text = GameLanguage.Instance.PRICE_BID;
+                    TitleExpiryLabel.Text = GameLanguage.Instance.SELLER_EXPIRY;
 
                     //TotalGold.Visible = true;
                     PriceTextBox.Visible = false;
@@ -1111,11 +1111,11 @@ namespace Client.MirScenes.Dialogs
                     TitleItemLabel.Visible = true;
                     TitlePriceLabel.Visible = true;
                     TitleExpiryLabel.Visible = true;
-                    TitleSalePriceLabel.Text = "SALE PRICE";
-                    TitleSellLabel.Text = "SELL ITEM";
-                    TitleItemLabel.Text = "ITEM";
-                    TitlePriceLabel.Text = "PRICE";
-                    TitleExpiryLabel.Text = "EXPIRY";
+                    TitleSalePriceLabel.Text = GameLanguage.Instance.SALE_PRICE;
+                    TitleSellLabel.Text = GameLanguage.Instance.SELL_ITEM;
+                    TitleItemLabel.Text = GameLanguage.Instance.ITEM;
+                    TitlePriceLabel.Text = GameLanguage.Instance.PRICE;
+                    TitleExpiryLabel.Text = GameLanguage.Instance.EXPIRY;
 
                     foreach (var item in FilterButtons)
                     {
@@ -1161,11 +1161,11 @@ namespace Client.MirScenes.Dialogs
                     TitleItemLabel.Visible = true;
                     TitlePriceLabel.Visible = true;
                     TitleExpiryLabel.Visible = true;
-                    TitleSalePriceLabel.Text = "STARTING BID";
-                    TitleSellLabel.Text = "SELL ITEM";
-                    TitleItemLabel.Text = "ITEM";
-                    TitlePriceLabel.Text = "HIGHEST BID";
-                    TitleExpiryLabel.Text = "END DATE";
+                    TitleSalePriceLabel.Text = GameLanguage.Instance.STARTING_BID;
+                    TitleSellLabel.Text = GameLanguage.Instance.SELL_ITEM;
+                    TitleItemLabel.Text = GameLanguage.Instance.ITEM;
+                    TitlePriceLabel.Text = GameLanguage.Instance.HIGHEST_BID;
+                    TitleExpiryLabel.Text = GameLanguage.Instance.END_DATE;
 
                     foreach (var item in FilterButtons)
                     {
@@ -1209,10 +1209,10 @@ namespace Client.MirScenes.Dialogs
                     TitleItemLabel.Visible = true;
                     TitlePriceLabel.Visible = true;
                     TitleExpiryLabel.Visible = true;
-                    TitleSalePriceLabel.Text = "SALE PRICE";
-                    TitleSellLabel.Text = "SELL ITEM";
-                    TitleItemLabel.Text = "ITEM";
-                    TitlePriceLabel.Text = "PRICE";
+                    TitleSalePriceLabel.Text = GameLanguage.Instance.SALE_PRICE;
+                    TitleSellLabel.Text = GameLanguage.Instance.SELL_ITEM;
+                    TitleItemLabel.Text = GameLanguage.Instance.ITEM;
+                    TitlePriceLabel.Text = GameLanguage.Instance.PRICE;
                     TitleExpiryLabel.Text = "";
 
                     MarketType = MarketPanelType.GameShop;
@@ -1477,7 +1477,7 @@ namespace Client.MirScenes.Dialogs
             {
                 Listing = listing;
                 NameLabel.Text = Listing.Item.FriendlyName;
-                PriceLabel.Text = String.Format("{0:###,###,##0} {1}", Listing.Price, listing.ItemType == MarketItemType.Auction ? "Bid" : "");
+                PriceLabel.Text = String.Format("{0:###,###,##0} {1}", Listing.Price, listing.ItemType == MarketItemType.Auction ? GameLanguage.Instance.Bid : "");
 
                 NameLabel.ForeColour = GameScene.Scene.GradeNameColor(Listing.Item.Info.Grade);
                 if (NameLabel.ForeColour == Color.Yellow)

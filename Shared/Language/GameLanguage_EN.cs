@@ -779,6 +779,23 @@ public class GameLanguage_EN : GameLanguage
         LoverLengthLabel1 = "Time Since: ";
         Days = " Days";
         AllowRecall = "Allow/Block Recall";
+        TradeAmount = "Trade Amount:";
+        SearchAgain = "You can search again after {0} seconds.";
+        GetBack = "{0} has not sold, Are you sure you want to get it back?";
+        BuyItem = "Are you sure you want to buy {0} for {1:#,##0} {2}?";
+        BidAmount = "Bid Amount:";
+        BidItem = "Are you sure you want to bid {0:#,##0} Gold for {1}?";
+        SALE_PRICE = "SALE PRICE";
+        SELL_ITEM = "SELL ITEM";
+        ITEM = "ITEM";
+        PRICE = "PRICE";
+        EXPIRY = "EXPIRY";
+        PRICE_BID = "PRICE / BID";
+        SELLER_EXPIRY = "SELLER / EXPIRY";
+        STARTING_BID = "STARTING BID";
+        HIGHEST_BID = "HIGHEST BID";
+        END_DATE = "END DATE";
+        Bid = "Bid";
 
                          //Server
                          Welcome = "Welcome to the {0} Server.";

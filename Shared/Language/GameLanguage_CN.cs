@@ -779,6 +779,23 @@ public class GameLanguage_CN : GameLanguage
         LoverLengthLabel1 = "时间共: ";
         Days = " 天";
         AllowRecall = "允许/禁止 夫妻传送";
+        TradeAmount = "交易数量:";
+        SearchAgain = "你可以在 {0} 秒之后再次搜索";
+        GetBack = "{0} 未出售，你确定要取回它吗";
+        BuyItem = "你确定购买 {0} 价格 {1:#,##0} {2} 吗";
+        BidAmount = "竞拍数量:";
+        BidItem = "你确定以 {0:#,##0} 金币竞拍 {1} 吗";
+        SALE_PRICE = "出售价格";
+        SELL_ITEM = "出售物品";
+        ITEM = "物品";
+        PRICE = "价格";
+        EXPIRY = "期限";
+        PRICE_BID = "价格 / 竞价";
+        SELLER_EXPIRY = "卖家 / 期限";
+        STARTING_BID = "开始竞拍";
+        HIGHEST_BID = "最高竞价";
+        END_DATE = "结束日期";
+        Bid = "竞价";
 
                          //Server
                          Welcome = "欢迎来到 {0} 服务器.";

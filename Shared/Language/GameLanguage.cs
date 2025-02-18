@@ -768,7 +768,24 @@
         LoverDateLabel1 = "",
         LoverLengthLabel1 = "",
         Days = "",
-        AllowRecall = "";
+        AllowRecall = "",
+        TradeAmount = "",
+        SearchAgain = "",
+        GetBack = "",
+        BuyItem = "",
+        BidAmount = "",
+        BidItem = "",
+        SALE_PRICE = "",
+        SELL_ITEM = "",
+        ITEM = "",
+        PRICE = "",
+        EXPIRY = "",
+        PRICE_BID = "",
+        SELLER_EXPIRY = "",
+        STARTING_BID = "",
+        HIGHEST_BID = "",
+        END_DATE = "",
+        Bid = "";
 
     //Server
     public string Welcome = "Welcome to the {0} Server.",

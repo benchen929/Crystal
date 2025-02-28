@@ -94,7 +94,7 @@ public class QuestItemReward
 
 public class WorldMapSetup
 {
-    public bool Enabled;
+    public bool Enabled = true;
     public List<WorldMapIcon> Icons = new List<WorldMapIcon>();
 
     public WorldMapSetup() { }
